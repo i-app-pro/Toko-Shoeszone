@@ -22,12 +22,16 @@ public class AddNewUsers extends javax.swing.JFrame {
     /**
      * Creates new form AddNewUsers
      */
-    public AddNewUsers(ManageUsers manageUsers) {
-    initComponents();
-    this.manageUsers = manageUsers;
-}
-
+    
     private ManageUsers manageUsers;
+    
+    public AddNewUsers(ManageUsers manageUsers) {
+        initComponents();
+        this.manageUsers = manageUsers;
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        setLocationRelativeTo(null);
+    }
+
 
     private AddNewUsers() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
@@ -56,9 +60,9 @@ public class AddNewUsers extends javax.swing.JFrame {
         btnBatal = new javax.swing.JButton();
         txtPassword = new javax.swing.JPasswordField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(204, 255, 204));
+        jPanel1.setBackground(new java.awt.Color(102, 255, 255));
 
         jLabel1.setText("Nama");
 
@@ -204,41 +208,7 @@ public class AddNewUsers extends javax.swing.JFrame {
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
-//
-//    private void simpanData() {
-//               try {
-//            String nama = txtNama.getText();
-//            String jabatan = cmbJabatan.getSelectedItem().toString();
-//            String username = txtUsername.getText();
-//            String password = new String(txtPassword.getPassword());
-//            
-//            Connection K = Koneksi.Go();
-//            String sql = "INSERT INTO pegawai "
-//                    + "(nama_pegawai,jabatan,username,password_hash) "
-//                    + "VALUES "
-//                    + "(?,?,?,?)";
-//            PreparedStatement PS = K.prepareStatement(sql);
-//            PS.setString(1, nama);
-//            PS.setString(2, jabatan);
-//            PS.setString(3, username);
-//            PS.setString(4, password);
-//            PS.executeUpdate();
-//            
-//            ManageUsers.refreshData();
-//            this.setVisible(false); 
-//            
-//            JOptionPane.showMessageDialog(null, "Data berhasil disimpan");
-//            
-//            
-//        } catch (HeadlessException | SQLException e) {
-//            //error handling
-//            System.err.println(""
-//                    + "Lokasi: "+getClass()+""
-//                    + "Method: @simpanData()"
-//                    + "Error: "+e.getMessage());
-//        }
-//    }
-//}
+
     private void simpanData() {
         Connection K = null;
         PreparedStatement PS = null;
