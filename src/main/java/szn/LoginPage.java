@@ -35,24 +35,29 @@ public class LoginPage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txtUsername = new javax.swing.JTextField();
         txtPassword = new javax.swing.JPasswordField();
         btnLogin = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 204, 255));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel2.setText("Username");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 32, 134, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel3.setText("Password");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 76, 134, -1));
 
         txtUsername.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         txtUsername.addActionListener(new java.awt.event.ActionListener() {
@@ -60,6 +65,7 @@ public class LoginPage extends javax.swing.JFrame {
                 txtUsernameActionPerformed(evt);
             }
         });
+        jPanel2.add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(172, 32, 248, 32));
 
         txtPassword.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         txtPassword.addActionListener(new java.awt.event.ActionListener() {
@@ -67,6 +73,7 @@ public class LoginPage extends javax.swing.JFrame {
                 txtPasswordActionPerformed(evt);
             }
         });
+        jPanel2.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(172, 76, 248, 32));
 
         btnLogin.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnLogin.setText("Login Now");
@@ -75,61 +82,14 @@ public class LoginPage extends javax.swing.JFrame {
                 btnLoginActionPerformed(evt);
             }
         });
+        jPanel2.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(263, 126, 157, 33));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(50, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtUsername))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(51, Short.MAX_VALUE))
-        );
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 240, 454, 199));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1271, 726, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 405, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 405, Short.MAX_VALUE)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 255, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 255, Short.MAX_VALUE)))
-        );
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/bg_sepatu.jpg"))); // NOI18N
+        jLabel4.setText("jLabel4");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1300, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -177,51 +137,116 @@ public class LoginPage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
 
+    
     private void Login() {
-        String usr = txtUsername.getText();
-    String pwd = new String(txtPassword.getPassword());
-    try {
-        Connection K = Koneksi.Go();
-        Statement ST = K.createStatement();
+    String usr = txtUsername.getText();
+    // Gunakan getPassword() dan konversi ke String HANYA untuk perbandingan sementara.
+    String pwd = new String(txtPassword.getPassword()); 
+    
+    // Gunakan try-with-resources untuk memastikan Connection dan PreparedStatement ditutup
+    try (Connection K = Koneksi.Go();
+         java.sql.PreparedStatement PS = K.prepareStatement(
+             "SELECT id_user, nama, Email, Username, password FROM Users WHERE Username = ? AND password = ?"
+         )) {
         
-        // SESUAIKAN: Nama tabel 'users' dan nama kolom 'password'
-        String Q = "SELECT * FROM users "
-                + "WHERE "
-                + "username='" + usr + "' AND "
-                + "password='" + pwd + "'";
+        PS.setString(1, usr); // Mengganti tanda tanya pertama (?) dengan nilai username
+        PS.setString(2, pwd); // Mengganti tanda tanya kedua (?) dengan nilai password
         
-        ResultSet RS = ST.executeQuery(Q);
-        int n = 0;
-        Users Usr = new Users();
-        while (RS.next()) {
-            n++;
-            // SESUAIKAN: Nama kolom sesuai dengan screenshot database kamu
-            Users.setId(RS.getInt("id_user"));
-            Users.setNama(RS.getString("nama"));
-            // Jika tabel users tidak punya kolom jabatan, baris bawah ini mungkin error
-            // Pastikan kolom 'jabatan' ada di tabel 'users'
-            Users.setJabatan(RS.getString("email")); // Contoh: sementara ambil email jika jabatan tidak ada
-            Users.setUsername(RS.getString("username"));
-            Users.setPassword(RS.getString("password"));
-        }
-        
-        if (n > 0) {
-            // Logika redirect...
-            System.out.println("Login Berhasil!");
-            this.setVisible(false);
-            DashboardAdmin DA = new DashboardAdmin();
-            DA.setVisible(true);
-        } else {
-            System.err.println("Akun tidak ditemukan");
-            javax.swing.JOptionPane.showMessageDialog(this, "Username atau Password Salah!");
+        try (ResultSet RS = PS.executeQuery()) {
+            int n = 0;
+            Users Us = new Users();
+            
+            if (RS.next()) { // Hanya perlu satu hasil, jika ada, login berhasil
+                n = 1;
+                // Mengatur properti Users Class menggunakan data dari ResultSet
+                Users.setId(RS.getInt("id_user"));
+                Users.setNama(RS.getString("nama"));
+                Users.setEmail(RS.getString("Email")); // Anda menggunakan Us dan Users.static
+                Users.setUsername(RS.getString("Username"));
+                Users.setPassword(RS.getString("password"));
+            }
+            
+            if (n > 0) {
+                this.setVisible(false); 
+                DashboardAdmin DA = new DashboardAdmin();
+                DA.Usr = Us; // Pastikan kelas DashboardAdmin memiliki properti Usr yang bisa diatur
+                DA.setVisible(true);
+                DA.setExtendedState(Frame.MAXIMIZED_BOTH);
+            } else {
+                javax.swing.JOptionPane.showMessageDialog(this, "Username atau Password salah.");
+            }
         }
     } catch (SQLException e) {
-        javax.swing.JOptionPane.showMessageDialog(this, "Terjadi error:\n" + e.getMessage());
+        javax.swing.JOptionPane.showMessageDialog(this, "Terjadi error koneksi database:\n" + e.getMessage());
+        logger.log(java.util.logging.Level.SEVERE, "SQL Error during login", e);
+    }
     }
 }
-}
+    
+    
+    
+
+
+//    private void Login() {
+//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+//    }
+//}
+//    private void Login() {
+//        String usr = txtUsername.getText();
+//        String pwd = new String(txtPassword.getPassword());
+//        try {
+//            Connection K = Koneksi.Go();
+//            Statement ST = K.createStatement();
+//            String Q = "SELECT * FROM Users "
+//                    + "WHERE "
+//                    + "username='" + usr + "' AND "
+//                    + "password='" + pwd + "'";
+//            ResultSet RS = ST.executeQuery(Q);
+//            int n = 0;
+//            Users Usr = new Users();
+//            while (RS.next()) {
+//                n++;
+//                Users.setId(RS.getInt("id_user"));
+//                Users.setNama(RS.getString("nama"));
+//                Users.setJabatan(RS.getString("email"));
+//                Users.setUsername(RS.getString("username"));
+//                Users.setPassword(RS.getString("password"));
+//            }
+//            if (n > 0) {
+//                switch (Users.getUsername()) {
+//                    case "kasir2" -> {
+//                        this.setVisible(false);
+//                        DashboardAdmin DA = new DashboardAdmin();
+//                        DA.Users = Usr;
+//                        DA.setVisible(true);
+//                        DA.setExtendedState(Frame.MAXIMIZED_BOTH);
+//                    }
+//                    case "kasir1" -> {
+//                    }
+//                    case "admin" -> {
+//                    }
+//                    default -> {
+//                    }
+//                }
+//                //kita redirect ke dashboard kasir
+//                //kita redirect ke dashboard manajer
+//                //opsional
+//                            } else {
+//                System.err.println("Akun tidak ditemukan");
+//            }
+//        } catch (SQLException e) {
+//            javax.swing.JOptionPane.showMessageDialog(this, "Terjadi error:\n" + e.getMessage());
+//        }
+//        
+//        
+//            
+//        
+//
+//    }
+//}

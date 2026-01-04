@@ -1,10 +1,14 @@
-package sz.panel;
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package sz.util;
 
 public class Pegawai {
     private int id_pegawai;
     private String nama_pegawai;
     private String jabatan;
-    private String username_p;
+    private String username;
     private String password_hash;
 
     public int getIdp() {
@@ -32,11 +36,11 @@ public class Pegawai {
     }
 
     public String getUnam() {
-        return username_p;
+        return username;
     }
 
     public void setUnam(String unam) {
-        this.username_p = unam;
+        this.username = unam;
     }
 
     public String getPgw() {

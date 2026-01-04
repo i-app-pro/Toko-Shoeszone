@@ -3,13 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package sz.dialog;
-import java.awt.HeadlessException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
-import sz.panel.ManageUsers;
 import sz.util.Koneksi;
+import sz.panel.ManageUsers;
+
 
 /**
  *
@@ -22,9 +22,21 @@ public class AddNewUsers extends javax.swing.JFrame {
     /**
      * Creates new form AddNewUsers
      */
-    public AddNewUsers() {
+    
+    private ManageUsers manageUsers;
+    
+    public AddNewUsers(ManageUsers manageUsers) {
         initComponents();
+        this.manageUsers = manageUsers;
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        setLocationRelativeTo(null);
     }
+
+
+    private AddNewUsers() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -48,9 +60,9 @@ public class AddNewUsers extends javax.swing.JFrame {
         btnBatal = new javax.swing.JButton();
         txtPassword = new javax.swing.JPasswordField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(204, 255, 204));
+        jPanel1.setBackground(new java.awt.Color(102, 255, 255));
 
         jLabel1.setText("Nama");
 
@@ -198,36 +210,50 @@ public class AddNewUsers extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void simpanData() {
-               try {
+        Connection K = null;
+        PreparedStatement PS = null;
+
+        try {
             String nama = txtNama.getText();
             String jabatan = cmbJabatan.getSelectedItem().toString();
             String username = txtUsername.getText();
             String password = new String(txtPassword.getPassword());
-            
-            Connection K = Koneksi.Go();
+
+            K = Koneksi.Go();
+            if (K == null) {
+                JOptionPane.showMessageDialog(this, "Koneksi database gagal");
+                return;
+            }
+
             String sql = "INSERT INTO pegawai "
-                    + "(nama_pegawai,jabatan,username,password_hash) "
-                    + "VALUES "
-                    + "(?,?,?,?)";
-            PreparedStatement PS = K.prepareStatement(sql);
+                       + "(nama_pegawai, jabatan, username, password_hash) "
+                       + "VALUES (?, ?, ?, ?)";
+
+            PS = K.prepareStatement(sql);
             PS.setString(1, nama);
             PS.setString(2, jabatan);
             PS.setString(3, username);
             PS.setString(4, password);
             PS.executeUpdate();
-            
-            ManageUsers.refreshData();
-            this.setVisible(false); 
-            
-            JOptionPane.showMessageDialog(null, "Data berhasil disimpan");
-            
-            
-        } catch (HeadlessException | SQLException e) {
-            //error handling
-            System.err.println(""
-                    + "Lokasi: "+getClass()+""
-                    + "Method: @simpanData()"
-                    + "Error: "+e.getMessage());
+
+            if (manageUsers != null) {
+                manageUsers.refreshData();
+            }
+
+            JOptionPane.showMessageDialog(this, "Data berhasil disimpan");
+            this.dispose();
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        } finally {
+            try {
+                if (PS != null) PS.close();
+                if (K != null) K.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
-}
+
+} // ✅ PENUTUP CLASS AddNewUsers (SATU SAJA)
+
