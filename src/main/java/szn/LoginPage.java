@@ -162,25 +162,23 @@ public class LoginPage extends javax.swing.JFrame {
             int n = 0;
             Users Us = new Users();
             
-            if (RS.next()) { // Hanya perlu satu hasil, jika ada, login berhasil
-                n = 1;
-                // Mengatur properti Users Class menggunakan data dari ResultSet
+            if (RS.next()) {
                 Users.setId(RS.getInt("id_user"));
                 Users.setNama(RS.getString("nama"));
-                Users.setEmail(RS.getString("Email")); // Anda menggunakan Us dan Users.static
+                Users.setEmail(RS.getString("Email"));
                 Users.setUsername(RS.getString("Username"));
                 Users.setPassword(RS.getString("password"));
-            }
-            
-            if (n > 0) {
-                this.setVisible(false); 
+
+                this.dispose(); // TUTUP LOGIN
+
                 DashboardAdmin DA = new DashboardAdmin();
-                DA.Usr = Us; // Pastikan kelas DashboardAdmin memiliki properti Usr yang bisa diatur
-                DA.setVisible(true);
                 DA.setExtendedState(Frame.MAXIMIZED_BOTH);
+                DA.setVisible(true);
+
             } else {
                 javax.swing.JOptionPane.showMessageDialog(this, "Username atau Password salah.");
             }
+
         }
     } catch (SQLException e) {
         javax.swing.JOptionPane.showMessageDialog(this, "Terjadi error koneksi database:\n" + e.getMessage());

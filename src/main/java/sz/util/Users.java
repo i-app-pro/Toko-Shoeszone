@@ -15,7 +15,16 @@ public class Users {
     private static String jabatan;
     private static String username;
     private static String password;
-    
+    private static String email;
+
+    public static void setEmail(String email) {
+        Users.email = email;
+    }
+
+    public static String getEmail() {
+        return email;
+    }
+
     // (Anda bisa tambah variabel lain jika perlu)
   
 
@@ -65,9 +74,4 @@ public class Users {
     public static String getpassword(){
         return password;
     }
-
-    public static void setEmail(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
 }
