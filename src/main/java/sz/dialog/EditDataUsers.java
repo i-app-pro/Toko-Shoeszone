@@ -59,6 +59,7 @@ public class EditDataUsers extends javax.swing.JFrame {
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("BATAL");
 
+        jButton2.setBackground(new java.awt.Color(0, 204, 255));
         jButton2.setText("SIMPAN");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

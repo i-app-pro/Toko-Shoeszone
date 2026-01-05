@@ -107,7 +107,7 @@ public class ManageProduct extends javax.swing.JPanel {
 
             },
             new String [] {
-                "ID", "NAMA", "EMAIL", "USERNAME", "PASSWORD"
+                "id_produk", "nama_produk", "id_kategori", "ukuran", "harga", "stok"
             }
         ));
         jTable1.setRowHeight(30);

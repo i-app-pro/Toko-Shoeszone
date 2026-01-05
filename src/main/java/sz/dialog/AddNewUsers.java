@@ -74,6 +74,7 @@ public class AddNewUsers extends javax.swing.JFrame {
 
         cmbJabatan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "KASIR", "ADMIN", "MANAJER" }));
 
+        btnSimpan.setBackground(new java.awt.Color(0, 204, 255));
         btnSimpan.setText("Simpan");
         btnSimpan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

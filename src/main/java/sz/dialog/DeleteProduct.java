@@ -57,6 +57,7 @@ public class DeleteProduct extends javax.swing.JFrame {
 
         jLabel1.setText("jLabel1");
 
+        jButton1.setBackground(new java.awt.Color(0, 204, 255));
         jButton1.setText("YA");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -57,7 +57,7 @@ public class AddDataProduct extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jDesktopPane1.setBackground(new java.awt.Color(51, 255, 255));
+        jDesktopPane1.setBackground(new java.awt.Color(102, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setText("PENGELOLAAN DATA PRODUK SEPATU ");
