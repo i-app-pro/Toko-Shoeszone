@@ -31,21 +31,116 @@ public class DashboardKasir extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel7 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jPanel6 = new javax.swing.JPanel();
+        btnTransaksi = new javax.swing.JButton();
+        btnRiwayatTransaksi = new javax.swing.JButton();
+        btnLaporanHarian1 = new javax.swing.JButton();
+        panelContent = new javax.swing.JPanel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel7.setBackground(new java.awt.Color(0, 255, 255));
+        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel1.setText("jLabel1");
+        jPanel7.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 30, 226, -1));
+
+        jButton2.setBackground(new java.awt.Color(255, 0, 0));
+        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setText("Logout");
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel7.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 60, 226, -1));
+
+        jPanel6.setBackground(new java.awt.Color(0, 204, 204));
+        jPanel6.setPreferredSize(new java.awt.Dimension(180, 420));
+        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnTransaksi.setBackground(new java.awt.Color(255, 255, 102));
+        btnTransaksi.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnTransaksi.setText("Transaksi");
+        btnTransaksi.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnTransaksi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTransaksiActionPerformed(evt);
+            }
+        });
+        jPanel6.add(btnTransaksi, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 210, 40));
+
+        btnRiwayatTransaksi.setBackground(new java.awt.Color(255, 255, 102));
+        btnRiwayatTransaksi.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnRiwayatTransaksi.setText("Riwayat Transaksi");
+        btnRiwayatTransaksi.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRiwayatTransaksi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRiwayatTransaksiActionPerformed(evt);
+            }
+        });
+        jPanel6.add(btnRiwayatTransaksi, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 210, 40));
+
+        btnLaporanHarian1.setBackground(new java.awt.Color(255, 255, 102));
+        btnLaporanHarian1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnLaporanHarian1.setText("Laporan Harian");
+        btnLaporanHarian1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLaporanHarian1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLaporanHarian1ActionPerformed(evt);
+            }
+        });
+        jPanel6.add(btnLaporanHarian1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 210, 40));
+
+        panelContent.setBackground(new java.awt.Color(0, 153, 153));
+        panelContent.setLayout(new java.awt.BorderLayout());
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panelContent, javax.swing.GroupLayout.PREFERRED_SIZE, 1168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 614, Short.MAX_VALUE)
+                    .addComponent(panelContent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void btnTransaksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransaksiActionPerformed
+
+    }//GEN-LAST:event_btnTransaksiActionPerformed
+
+    private void btnRiwayatTransaksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRiwayatTransaksiActionPerformed
+
+    }//GEN-LAST:event_btnRiwayatTransaksiActionPerformed
+
+    private void btnLaporanHarian1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLaporanHarian1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLaporanHarian1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -73,5 +168,13 @@ public class DashboardKasir extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnLaporanHarian1;
+    private javax.swing.JButton btnRiwayatTransaksi;
+    private javax.swing.JButton btnTransaksi;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel panelContent;
     // End of variables declaration//GEN-END:variables
 }

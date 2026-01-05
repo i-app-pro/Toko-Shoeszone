@@ -4,6 +4,11 @@
  */
 package sz.panel;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import javax.swing.table.DefaultTableModel;
+import sz.util.Koneksi;
 /**
  *
  * @author ADVAN
@@ -15,6 +20,7 @@ public class ManageProduct extends javax.swing.JPanel {
      */
     public ManageProduct() {
         initComponents();
+        loadData();
     }
 
     /**
@@ -191,4 +197,54 @@ public class ManageProduct extends javax.swing.JPanel {
     private static javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
+
+private void loadData() {
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setRowCount(0); // Hapus data lama
+
+        try {
+            String sql = "SELECT * FROM produk";
+            Connection conn = Koneksi.Go(); // Panggil koneksi
+            Statement stat = conn.createStatement();
+            ResultSet res = stat.executeQuery(sql);
+
+            while (res.next()) {
+                model.addRow(new Object[]{
+                    res.getString("id_produk"),
+                    res.getString("nama_produk"),
+                    res.getString("id_kategori"),
+                    res.getString("harga"),
+                    res.getString("ukuran"),
+                    res.getString("stok")
+                });
+            }
+        } catch (Exception e) {
+            System.out.println("Error load data: " + e.getMessage());
+        }
+    }
+    
+    
+    public static void main(String args[]) {
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (Exception ex) {
+            java.util.logging.Logger.getLogger(ManageProduct.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                javax.swing.JFrame frame = new javax.swing.JFrame("Test Manage Product");
+                frame.setDefaultCloseOperation(javax.swing.JFrame.EXIT_ON_CLOSE);
+                frame.add(new ManageProduct()); // Masukkan panel ini ke dalam frame
+                frame.pack();
+                frame.setVisible(true);
+            }
+        });
+    }
 }
