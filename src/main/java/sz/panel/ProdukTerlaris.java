@@ -9,7 +9,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Adies
+ * @author ADVAN
  */
 public class ProdukTerlaris extends javax.swing.JPanel {
 

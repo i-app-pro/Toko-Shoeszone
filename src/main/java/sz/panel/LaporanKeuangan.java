@@ -14,7 +14,7 @@ import sz.util.Koneksi;
 
 /**
  *
- * @author Adies
+ * @author ADVAN
  */
 public class LaporanKeuangan extends javax.swing.JPanel {
 

@@ -12,7 +12,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Adies
+ * @author ADVAN
  */
 public class TotalLaba extends javax.swing.JPanel {
 

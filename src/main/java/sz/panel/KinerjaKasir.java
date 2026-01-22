@@ -14,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Adies
+ * @author ADVAN
  */
 public class KinerjaKasir extends javax.swing.JPanel {
 

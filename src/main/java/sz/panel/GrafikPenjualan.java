@@ -6,7 +6,7 @@ package sz.panel;
 
 /**
  *
- * @author Adies
+ * @author ADVAN
  */
 import java.awt.*;
 import java.sql.*;

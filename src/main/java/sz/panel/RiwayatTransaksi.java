@@ -12,7 +12,7 @@ import sz.util.Koneksi;
 
 /**
  *
- * @author Adies
+ * @author ADVAN
  */
 public class RiwayatTransaksi extends javax.swing.JPanel {
     /**
