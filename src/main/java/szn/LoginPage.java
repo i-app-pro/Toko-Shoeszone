@@ -147,7 +147,7 @@ public class LoginPage extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     
-    private void Login() {
+private void Login() {
      String username = txtUsername.getText();
     String password = new String(txtPassword.getPassword());
 

@@ -107,13 +107,13 @@ public class TotalLaba extends javax.swing.JPanel {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "no", "tanggal", "tipe", "modal", "jual", "Qty", "laba"
+                "No", "Tanggal", "Nama Produk", "Qty", "Laba"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -123,7 +123,7 @@ public class TotalLaba extends javax.swing.JPanel {
         jPanel2.setBackground(new java.awt.Color(0, 204, 204));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel3.setText("Total Pendapatan");
+        jLabel3.setText("Total Laba Pendapatan");
 
         lblTotalLaba.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lblTotalLaba.setText(" Jumlah Laba");
@@ -170,7 +170,7 @@ public class TotalLaba extends javax.swing.JPanel {
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jSeparator3)))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 569, Short.MAX_VALUE)
+                .addGap(0, 698, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(124, 124, 124))
         );
