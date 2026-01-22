@@ -6,6 +6,13 @@ package szn;
 
 import java.awt.Frame;
 import sz.dialog.ProfileUser;
+import sz.panel.GrafikPenjualan;
+import sz.panel.KinerjaKasir;
+import sz.panel.LaporanKeuangan;
+import sz.panel.ProdukTerlaris;
+import sz.panel.ProdukTerjual;
+import sz.panel.TotalLaba;
+import sz.panel.TotalPendapatan;
 
 /**
  *
@@ -39,7 +46,7 @@ public class DashboardManajer extends javax.swing.JFrame {
         btnKinerjaKasir = new javax.swing.JButton();
         btnProdukTerlaris = new javax.swing.JButton();
         btnLaba = new javax.swing.JButton();
-        panelContent = new javax.swing.JPanel();
+        contentPanel = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
@@ -59,7 +66,7 @@ public class DashboardManajer extends javax.swing.JFrame {
                 btnGrafikPenjualanActionPerformed(evt);
             }
         });
-        jPanel6.add(btnGrafikPenjualan, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 180, 40));
+        jPanel6.add(btnGrafikPenjualan, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, 180, 40));
 
         btnPendapatan.setBackground(new java.awt.Color(255, 255, 102));
         btnPendapatan.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -81,7 +88,7 @@ public class DashboardManajer extends javax.swing.JFrame {
                 btnLaporanHarianActionPerformed(evt);
             }
         });
-        jPanel6.add(btnLaporanHarian, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, 180, 40));
+        jPanel6.add(btnLaporanHarian, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 180, 40));
 
         btnProdukTerjual.setBackground(new java.awt.Color(255, 255, 102));
         btnProdukTerjual.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -127,8 +134,8 @@ public class DashboardManajer extends javax.swing.JFrame {
         });
         jPanel6.add(btnLaba, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 180, 40));
 
-        panelContent.setBackground(new java.awt.Color(0, 153, 153));
-        panelContent.setLayout(new java.awt.BorderLayout());
+        contentPanel.setBackground(new java.awt.Color(0, 153, 153));
+        contentPanel.setLayout(new java.awt.BorderLayout());
 
         jPanel7.setBackground(new java.awt.Color(0, 255, 255));
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -161,7 +168,7 @@ public class DashboardManajer extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panelContent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(contentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -172,22 +179,35 @@ public class DashboardManajer extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 630, Short.MAX_VALUE)
-                    .addComponent(panelContent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(contentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGrafikPenjualanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGrafikPenjualanActionPerformed
-
+    GrafikPenjualan panel = new GrafikPenjualan();
+        contentPanel.removeAll();
+        contentPanel.add(panel);
+        contentPanel.repaint();
+        contentPanel.revalidate();
     }//GEN-LAST:event_btnGrafikPenjualanActionPerformed
 
     private void btnPendapatanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPendapatanActionPerformed
-
+    TotalPendapatan panel = new TotalPendapatan();
+        contentPanel.removeAll();
+        contentPanel.add(panel);
+        contentPanel.repaint();
+        contentPanel.revalidate();
     }//GEN-LAST:event_btnPendapatanActionPerformed
 
     private void btnLaporanHarianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLaporanHarianActionPerformed
         // TODO add your handling code here:
+    LaporanKeuangan panel = new LaporanKeuangan();
+        contentPanel.removeAll();
+        contentPanel.add(panel);
+        contentPanel.repaint();
+        contentPanel.revalidate();
     }//GEN-LAST:event_btnLaporanHarianActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -200,18 +220,38 @@ public class DashboardManajer extends javax.swing.JFrame {
 
     private void btnProdukTerjualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProdukTerjualActionPerformed
         // TODO add your handling code here:
+    ProdukTerjual panel = new ProdukTerjual();
+        contentPanel.removeAll();
+        contentPanel.add(panel);
+        contentPanel.repaint();
+        contentPanel.revalidate();
     }//GEN-LAST:event_btnProdukTerjualActionPerformed
 
     private void btnKinerjaKasirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKinerjaKasirActionPerformed
         // TODO add your handling code here:
+    KinerjaKasir panel = new KinerjaKasir();
+        contentPanel.removeAll();
+        contentPanel.add(panel);
+        contentPanel.repaint();
+        contentPanel.revalidate();
     }//GEN-LAST:event_btnKinerjaKasirActionPerformed
 
     private void btnProdukTerlarisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProdukTerlarisActionPerformed
         // TODO add your handling code here:
+    ProdukTerlaris panel = new ProdukTerlaris();
+        contentPanel.removeAll();
+        contentPanel.add(panel);
+        contentPanel.repaint();
+        contentPanel.revalidate();
     }//GEN-LAST:event_btnProdukTerlarisActionPerformed
 
     private void btnLabaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLabaActionPerformed
         // TODO add your handling code here:
+    TotalLaba panel = new TotalLaba();
+        contentPanel.removeAll();
+        contentPanel.add(panel);
+        contentPanel.repaint();
+        contentPanel.revalidate();
     }//GEN-LAST:event_btnLabaActionPerformed
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
@@ -254,10 +294,10 @@ public class DashboardManajer extends javax.swing.JFrame {
     private javax.swing.JButton btnPendapatan;
     private javax.swing.JButton btnProdukTerjual;
     private javax.swing.JButton btnProdukTerlaris;
+    private javax.swing.JPanel contentPanel;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel panelContent;
     // End of variables declaration//GEN-END:variables
 }

@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 import sz.dialog.ProfileUser;
 import sz.panel.Transaksi;
 import sz.util.Pegawai;
-import sz.panel.LaporanHarian;
+import sz.panel.LaporanKeuangan;
 import sz.panel.RiwayatTransaksi;
 
 /**
@@ -101,7 +101,7 @@ public class DashboardKasir extends javax.swing.JFrame {
 
         btnLaporanHarian.setBackground(new java.awt.Color(255, 255, 102));
         btnLaporanHarian.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnLaporanHarian.setText("Laporan Harian");
+        btnLaporanHarian.setText("Laporan Keuangan");
         btnLaporanHarian.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnLaporanHarian.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -160,7 +160,7 @@ public class DashboardKasir extends javax.swing.JFrame {
 
     private void btnLaporanHarianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLaporanHarianActionPerformed
         // TODO add your handling code here:
-    LaporanHarian panel = new LaporanHarian();
+    LaporanKeuangan panel = new LaporanKeuangan();
     contentPanel.removeAll();
     contentPanel.add(panel);
     contentPanel.repaint();

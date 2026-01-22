@@ -79,7 +79,6 @@ public final class ManageUsers extends javax.swing.JPanel {
         jPanel2.setPreferredSize(new java.awt.Dimension(857, 75));
 
         btnTambah.setText("Tambah");
-        btnTambah.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btnTambah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTambahActionPerformed(evt);
@@ -87,7 +86,6 @@ public final class ManageUsers extends javax.swing.JPanel {
         });
 
         btnEdit.setText("Edit");
-        btnEdit.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btnEdit.setEnabled(false);
         btnEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,7 +94,6 @@ public final class ManageUsers extends javax.swing.JPanel {
         });
 
         btnHapus.setText("Hapus");
-        btnHapus.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btnHapus.setEnabled(false);
         btnHapus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -113,7 +110,6 @@ public final class ManageUsers extends javax.swing.JPanel {
         jLabel1.setText("Cari");
 
         btnRefresh.setText("Refresh");
-        btnRefresh.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btnRefresh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRefreshActionPerformed(evt);

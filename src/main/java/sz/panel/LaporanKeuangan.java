@@ -16,9 +16,9 @@ import sz.util.Koneksi;
  *
  * @author Adies
  */
-public class LaporanHarian extends javax.swing.JPanel {
+public class LaporanKeuangan extends javax.swing.JPanel {
 
-    public LaporanHarian() {
+    public LaporanKeuangan() {
         initComponents();
         initTable();
         loadLaporan();
@@ -102,7 +102,7 @@ public class LaporanHarian extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Laporan Keuangan Harian");
+        jLabel1.setText("Laporan Keuangan ");
 
         jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
