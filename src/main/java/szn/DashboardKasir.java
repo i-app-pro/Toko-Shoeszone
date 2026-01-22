@@ -59,7 +59,7 @@ public class DashboardKasir extends javax.swing.JFrame {
                 jLabel1MouseClicked(evt);
             }
         });
-        jPanel7.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 30, 226, -1));
+        jPanel7.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 30, 226, -1));
 
         jButton2.setBackground(new java.awt.Color(255, 0, 0));
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -71,7 +71,7 @@ public class DashboardKasir extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel7.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 60, 226, -1));
+        jPanel7.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 60, 226, -1));
 
         jPanel6.setBackground(new java.awt.Color(0, 204, 204));
         jPanel6.setPreferredSize(new java.awt.Dimension(180, 420));
@@ -86,7 +86,7 @@ public class DashboardKasir extends javax.swing.JFrame {
                 btnTransaksiActionPerformed(evt);
             }
         });
-        jPanel6.add(btnTransaksi, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 210, 40));
+        jPanel6.add(btnTransaksi, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 210, 40));
 
         btnRiwayatTransaksi.setBackground(new java.awt.Color(255, 255, 102));
         btnRiwayatTransaksi.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -97,7 +97,7 @@ public class DashboardKasir extends javax.swing.JFrame {
                 btnRiwayatTransaksiActionPerformed(evt);
             }
         });
-        jPanel6.add(btnRiwayatTransaksi, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 210, 40));
+        jPanel6.add(btnRiwayatTransaksi, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 210, 40));
 
         btnLaporanHarian.setBackground(new java.awt.Color(255, 255, 102));
         btnLaporanHarian.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -108,7 +108,7 @@ public class DashboardKasir extends javax.swing.JFrame {
                 btnLaporanHarianActionPerformed(evt);
             }
         });
-        jPanel6.add(btnLaporanHarian, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 210, 40));
+        jPanel6.add(btnLaporanHarian, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, 210, 40));
 
         contentPanel.setBackground(new java.awt.Color(0, 153, 153));
         contentPanel.setLayout(new java.awt.BorderLayout());
@@ -118,11 +118,11 @@ public class DashboardKasir extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(contentPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(contentPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1161, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
-            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 1517, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

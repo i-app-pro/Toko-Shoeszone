@@ -4,6 +4,12 @@
  */
 package sz.panel;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Adies
@@ -15,6 +21,10 @@ public class TotalLaba extends javax.swing.JPanel {
      */
     public TotalLaba() {
         initComponents();
+        spinnerMulai.setModel(new javax.swing.SpinnerDateModel());
+        spinnerSampai.setModel(new javax.swing.SpinnerDateModel());
+        spinnerMulai.setEditor(new javax.swing.JSpinner.DateEditor(spinnerMulai, "yyyy-MM-dd"));
+        spinnerSampai.setEditor(new javax.swing.JSpinner.DateEditor(spinnerSampai, "yyyy-MM-dd"));
     }
 
     /**
@@ -41,13 +51,16 @@ public class TotalLaba extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         lblTotalLaba = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(0, 153, 153));
+
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("TOTAL PENDAPATAN");
+        jLabel1.setText("LABA PENDAPATAN");
 
-        jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
+        jSeparator1.setForeground(new java.awt.Color(51, 255, 255));
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 153));
+        jPanel1.setBackground(new java.awt.Color(51, 255, 255));
 
         spinnerMulai.setModel(new javax.swing.SpinnerDateModel());
 
@@ -90,7 +103,7 @@ public class TotalLaba extends javax.swing.JPanel {
                 .addContainerGap(49, Short.MAX_VALUE))
         );
 
-        jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
+        jSeparator2.setForeground(new java.awt.Color(51, 255, 255));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -105,15 +118,15 @@ public class TotalLaba extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jSeparator3.setForeground(new java.awt.Color(0, 0, 0));
+        jSeparator3.setForeground(new java.awt.Color(51, 255, 255));
 
-        jPanel2.setBackground(new java.awt.Color(153, 255, 153));
+        jPanel2.setBackground(new java.awt.Color(0, 204, 204));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setText("Total Pendapatan");
 
-        lblTotalLaba.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lblTotalLaba.setText(" lblTotalLaba");
+        lblTotalLaba.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lblTotalLaba.setText(" Jumlah Laba");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -125,18 +138,18 @@ public class TotalLaba extends javax.swing.JPanel {
                         .addContainerGap()
                         .addComponent(jLabel3))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(65, 65, 65)
+                        .addGap(134, 134, 134)
                         .addComponent(lblTotalLaba)))
-                .addContainerGap(224, Short.MAX_VALUE))
+                .addContainerGap(155, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel3)
-                .addGap(18, 18, 18)
+                .addGap(36, 36, 36)
                 .addComponent(lblTotalLaba)
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -157,7 +170,7 @@ public class TotalLaba extends javax.swing.JPanel {
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jSeparator3)))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 604, Short.MAX_VALUE)
+                .addGap(0, 569, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(124, 124, 124))
         );
@@ -178,12 +191,12 @@ public class TotalLaba extends javax.swing.JPanel {
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(232, Short.MAX_VALUE))
+                .addContainerGap(225, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
+        loadLaba();
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
@@ -203,4 +216,53 @@ public class TotalLaba extends javax.swing.JPanel {
     private javax.swing.JSpinner spinnerMulai;
     private javax.swing.JSpinner spinnerSampai;
     // End of variables declaration//GEN-END:variables
+private void loadLaba() {
+    DefaultTableModel model = new DefaultTableModel();
+    model.addColumn("No");
+    model.addColumn("Tanggal");
+    model.addColumn("Nama Produk");
+    model.addColumn("Qty");
+    model.addColumn("Laba");
+
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    String mulai = sdf.format(spinnerMulai.getValue());
+    String sampai = sdf.format(spinnerSampai.getValue());
+
+    double totalLabaBersih = 0;
+
+    try {
+        // Query JOIN 3 tabel untuk menghitung selisih harga
+        // Catatan: Ganti 'harga_beli' sesuai nama kolom modal di tabel produk Anda
+        String sql = "SELECT t.tanggal, p.nama_produk, dt.jumlah, " +
+                     "((p.harga - p.harga_beli) * dt.jumlah) AS laba_item " +
+                     "FROM detail_transaksi dt " +
+                     "JOIN produk p ON dt.id_produk = p.id_produk " +
+                     "JOIN transaksi t ON dt.id_transaksi = t.id_transaksi " +
+                     "WHERE t.tanggal BETWEEN '" + mulai + "' AND '" + sampai + "' " +
+                     "ORDER BY t.tanggal ASC";
+
+        Connection conn = sz.util.Koneksi.Go();
+        ResultSet res = conn.createStatement().executeQuery(sql);
+
+        int no = 1;
+        while (res.next()) {
+            double labaPerBaris = res.getDouble("laba_item");
+            totalLabaBersih += labaPerBaris;
+
+            model.addRow(new Object[]{
+                no++,
+                res.getString("tanggal"),
+                res.getString("nama_produk"),
+                res.getString("jumlah"),
+                "Rp " + String.format("%,.0f", labaPerBaris)
+            });
+        }
+        
+        jTable1.setModel(model);
+        lblTotalLaba.setText("Rp " + String.format("%,.0f", totalLabaBersih));
+
+    } catch (SQLException e) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Error Laba: " + e.getMessage());
+    }
+}
 }

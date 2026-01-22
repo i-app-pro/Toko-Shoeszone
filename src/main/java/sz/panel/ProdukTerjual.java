@@ -4,9 +4,12 @@
  */
 package sz.panel;
 
+import java.sql.SQLException;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
- * @author Adies
+ * @author ADVAN
  */
 public class ProdukTerjual extends javax.swing.JPanel {
     /**
@@ -14,6 +17,7 @@ public class ProdukTerjual extends javax.swing.JPanel {
      */
     public ProdukTerjual() {
         initComponents();
+        loadDataTerjual();
     }
 
     /**
@@ -30,15 +34,19 @@ public class ProdukTerjual extends javax.swing.JPanel {
         jSeparator1 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(0, 153, 153));
+        setForeground(new java.awt.Color(51, 255, 255));
+
+        jTable1.setBackground(new java.awt.Color(51, 255, 255));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "id_motor", "merk", "tipe", "tahun", "warna", "harga", "stok"
+                "No", "Tanggal", "ID Transaksi", "Nama Produk", "Jumlah", "Subtotal"
             }
         ));
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -48,9 +56,10 @@ public class ProdukTerjual extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
+        jSeparator1.setForeground(new java.awt.Color(51, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("PRODUK TERJUAL");
 
@@ -58,25 +67,23 @@ public class ProdukTerjual extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1120, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1108, Short.MAX_VALUE))
-                    .addComponent(jSeparator1))
+                    .addComponent(jSeparator1)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(80, 80, 80)
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(132, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -91,4 +98,42 @@ public class ProdukTerjual extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator1;
     private static javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
+private void loadDataTerjual() {
+    DefaultTableModel model = new DefaultTableModel();
+    model.addColumn("No");
+    model.addColumn("Tanggal");
+    model.addColumn("ID Transaksi");
+    model.addColumn("Nama Produk");
+    model.addColumn("Jumlah");
+    model.addColumn("Subtotal");
+
+    try {
+        // Query untuk mengambil detail barang yang terjual
+        String sql = "SELECT t.tanggal, dt.id_transaksi, p.nama_produk, dt.jumlah, dt.subtotal " +
+                     "FROM detail_transaksi dt " +
+                     "JOIN produk p ON dt.id_produk = p.id_produk " +
+                     "JOIN transaksi t ON dt.id_transaksi = t.id_transaksi " +
+                     "ORDER BY t.tanggal DESC";
+
+        java.sql.Connection conn = sz.util.Koneksi.Go();
+        java.sql.PreparedStatement pst = conn.prepareStatement(sql);
+        java.sql.ResultSet res = pst.executeQuery();
+
+        int no = 1;
+        while (res.next()) {
+            model.addRow(new Object[]{
+                no++,
+                res.getString("tanggal"),
+                res.getString("id_transaksi"),
+                res.getString("nama_produk"),
+                res.getString("jumlah"),
+                "Rp " + String.format("%,.0f", res.getDouble("subtotal"))
+            });
+        }
+        jTable1.setModel(model);
+
+    } catch (SQLException e) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Gagal memuat detail terjual: " + e.getMessage());
+    }
+}
 }

@@ -8,14 +8,28 @@ package sz.panel;
  *
  * @author Adies
  */
-public class GrafikPenjualan extends javax.swing.JPanel {
+import java.awt.*;
+import java.sql.*;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
 
-    /**
-     * Creates new form LaporanTerlaris
-     */
+public class GrafikPenjualan extends javax.swing.JPanel {
+    // List untuk menampung data dari database
+    private final List<Double> dataPendapatan = new ArrayList<>();
+    private final List<String> dataTanggal = new ArrayList<>();
+
     public GrafikPenjualan() {
         initComponents();
-
+        // Konfigurasi Spinner Tanggal
+        spinnerMulai.setModel(new javax.swing.SpinnerDateModel());
+        spinnerSampai.setModel(new javax.swing.SpinnerDateModel());
+        spinnerMulai.setEditor(new javax.swing.JSpinner.DateEditor(spinnerMulai, "yyyy-MM-dd"));
+        spinnerSampai.setEditor(new javax.swing.JSpinner.DateEditor(spinnerSampai, "yyyy-MM-dd"));
+        
+        // Memastikan pnlGrafik menggunakan BorderLayout agar gambar fleksibel
+        pnlGrafik.setLayout(new java.awt.BorderLayout());
     }
 
     /**
@@ -36,15 +50,65 @@ public class GrafikPenjualan extends javax.swing.JPanel {
         spinnerSampai = new javax.swing.JSpinner();
         btnCari = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        pnlGrafik = new javax.swing.JPanel();
+        pnlGrafik = new javax.swing.JPanel() {
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                if (dataPendapatan.size() < 2) {
+                    g.drawString("Data tidak cukup untuk grafik (minimal 2 hari)", 20, 20);
+                    return;
+                }
+
+                Graphics2D g2 = (Graphics2D) g;
+                g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+
+                int pad = 40; // Jarak dari pinggir panel
+                int w = getWidth() - 2 * pad;
+                int h = getHeight() - 2 * pad;
+
+                // Cari nilai tertinggi untuk menentukan skala tinggi grafik
+                double maxPendapatan = 0;
+                for (Double v : dataPendapatan) if (v > maxPendapatan) maxPendapatan = v;
+
+                double xDiv = (double) w / (dataPendapatan.size() - 1);
+                double yDiv = (double) h / maxPendapatan;
+
+                // Gambar Garis Penghubung
+                g2.setColor(new Color(0, 102, 204)); // Warna Biru
+                g2.setStroke(new BasicStroke(3f));
+
+                for (int i = 0; i < dataPendapatan.size() - 1; i++) {
+                    int x1 = pad + (int) (i * xDiv);
+                    int y1 = (getHeight() - pad) - (int) (dataPendapatan.get(i) * yDiv);
+                    int x2 = pad + (int) ((i + 1) * xDiv);
+                    int y2 = (getHeight() - pad) - (int) (dataPendapatan.get(i + 1) * yDiv);
+
+                    g2.drawLine(x1, y1, x2, y2);
+                    g2.fillOval(x1 - 4, y1 - 4, 8, 8); // Titik point
+                }
+                // Titik terakhir
+                g2.fillOval(pad + (int)((dataPendapatan.size()-1)*xDiv) - 4,
+                    (getHeight() - pad) - (int)(dataPendapatan.get(dataPendapatan.size()-1)*yDiv) - 4, 8, 8);
+
+                // Gambar Garis Sumbu (Axis)
+                g2.setColor(Color.BLACK);
+                g2.setStroke(new BasicStroke(1f));
+                g2.drawLine(pad, getHeight() - pad, getWidth() - pad, getHeight() - pad); // Garis X
+                g2.drawLine(pad, pad, pad, getHeight() - pad); // Garis Y
+            }
+        };
+
+        setBackground(new java.awt.Color(0, 153, 153));
+        setForeground(new java.awt.Color(51, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("GRAFIK PENJUALAN");
 
-        jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
+        jSeparator1.setForeground(new java.awt.Color(51, 255, 255));
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 204));
+        jPanel1.setBackground(new java.awt.Color(102, 255, 255));
 
         spinnerMulai.setModel(new javax.swing.SpinnerDateModel());
 
@@ -69,7 +133,7 @@ public class GrafikPenjualan extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(57, 57, 57)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(spinnerMulai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addGap(18, 18, 18)
@@ -83,9 +147,9 @@ public class GrafikPenjualan extends javax.swing.JPanel {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2)
                 .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(spinnerMulai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
@@ -94,6 +158,7 @@ public class GrafikPenjualan extends javax.swing.JPanel {
                 .addContainerGap(38, Short.MAX_VALUE))
         );
 
+        pnlGrafik.setBackground(new java.awt.Color(153, 255, 255));
         pnlGrafik.setLayout(new java.awt.GridLayout(0, 1));
         jScrollPane2.setViewportView(pnlGrafik);
 
@@ -102,16 +167,13 @@ public class GrafikPenjualan extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator1)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane2)
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(299, 299, 299)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -122,14 +184,14 @@ public class GrafikPenjualan extends javax.swing.JPanel {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(68, 68, 68)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(242, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(172, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCariActionPerformed
-
+        ambilDataDanGambar();
     }//GEN-LAST:event_btnCariActionPerformed
 
 
@@ -145,5 +207,33 @@ public class GrafikPenjualan extends javax.swing.JPanel {
     private javax.swing.JSpinner spinnerMulai;
     private javax.swing.JSpinner spinnerSampai;
     // End of variables declaration//GEN-END:variables
+private void ambilDataDanGambar() {
+    dataPendapatan.clear();
+    dataTanggal.clear();
+    
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    String mulai = sdf.format(spinnerMulai.getValue());
+    String sampai = sdf.format(spinnerSampai.getValue());
 
-}
+    try {
+        // Query untuk mendapatkan total pendapatan per hari
+        String sql = "SELECT tanggal, SUM(total) AS total_harian FROM transaksi " +
+                     "WHERE tanggal BETWEEN '" + mulai + "' AND '" + sampai + "' " +
+                     "GROUP BY tanggal ORDER BY tanggal ASC";
+        
+        Connection conn = sz.util.Koneksi.Go();
+        Statement stm = conn.createStatement();
+        ResultSet res = stm.executeQuery(sql);
+
+        while (res.next()) {
+            dataPendapatan.add(res.getDouble("total_harian"));
+            dataTanggal.add(res.getString("tanggal"));
+        }
+        
+        // Perintah untuk menggambar ulang grafik di panel
+        pnlGrafik.repaint(); 
+
+    } catch (SQLException e) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Gagal ambil data: " + e.getMessage());
+    }
+}}

@@ -4,6 +4,9 @@
  */
 package sz.panel;
 
+import java.sql.SQLException;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Adies
@@ -15,6 +18,15 @@ public class ProdukTerlaris extends javax.swing.JPanel {
      */
     public ProdukTerlaris() {
         initComponents();
+        // Mengatur format tanggal pada spinner
+        spinnerMulai.setModel(new javax.swing.SpinnerDateModel());
+        spinnerSampai.setModel(new javax.swing.SpinnerDateModel());
+
+        javax.swing.JSpinner.DateEditor editorMulai = new javax.swing.JSpinner.DateEditor(spinnerMulai, "yyyy-MM-dd");
+        spinnerMulai.setEditor(editorMulai);
+
+        javax.swing.JSpinner.DateEditor editorSampai = new javax.swing.JSpinner.DateEditor(spinnerSampai, "yyyy-MM-dd");
+        spinnerSampai.setEditor(editorSampai);
     }
 
     /**
@@ -37,13 +49,16 @@ public class ProdukTerlaris extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
+        setBackground(new java.awt.Color(0, 153, 153));
+
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("LAPORAN PRODUK TERLARIS");
 
-        jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
+        jSeparator1.setForeground(new java.awt.Color(102, 255, 255));
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 204));
+        jPanel1.setBackground(new java.awt.Color(102, 255, 255));
 
         spinnerMulai.setModel(new javax.swing.SpinnerDateModel());
 
@@ -68,23 +83,23 @@ public class ProdukTerlaris extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(57, 57, 57)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(spinnerMulai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
                 .addComponent(spinnerSampai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(275, 275, 275)
+                .addGap(31, 31, 31)
                 .addComponent(btnCari)
-                .addContainerGap(390, Short.MAX_VALUE))
+                .addContainerGap(634, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2)
                 .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(spinnerMulai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
@@ -93,6 +108,7 @@ public class ProdukTerlaris extends javax.swing.JPanel {
                 .addContainerGap(38, Short.MAX_VALUE))
         );
 
+        jTable1.setBackground(new java.awt.Color(51, 255, 255));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -122,20 +138,20 @@ public class ProdukTerlaris extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(38, 38, 38)
+                .addGap(26, 26, 26)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(281, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 415, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(99, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCariActionPerformed
-
+        loadDataTerlaris();
     }//GEN-LAST:event_btnCariActionPerformed
 
 
@@ -151,4 +167,43 @@ public class ProdukTerlaris extends javax.swing.JPanel {
     private javax.swing.JSpinner spinnerMulai;
     private javax.swing.JSpinner spinnerSampai;
     // End of variables declaration//GEN-END:variables
+private void loadDataTerlaris() {
+    DefaultTableModel model = new DefaultTableModel();
+    model.addColumn("No");
+    model.addColumn("Nama Produk");
+    model.addColumn("Jumlah Terjual");
+
+    // Mengambil tanggal dari spinner dan memformatnya untuk SQL
+    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd");
+    String tglMulai = sdf.format(spinnerMulai.getValue());
+    String tglSampai = sdf.format(spinnerSampai.getValue());
+
+    try {
+        // Query menggunakan JOIN untuk menghubungkan 3 tabel
+        String sql = "SELECT p.nama_produk, SUM(dt.jumlah) AS total_qty " +
+                     "FROM detail_transaksi dt " +
+                     "JOIN produk p ON dt.id_produk = p.id_produk " +
+                     "JOIN transaksi t ON dt.id_transaksi = t.id_transaksi " +
+                     "WHERE t.tanggal BETWEEN '" + tglMulai + "' AND '" + tglSampai + "' " +
+                     "GROUP BY dt.id_produk " +
+                     "ORDER BY total_qty DESC";
+
+        java.sql.Connection conn = sz.util.Koneksi.Go();
+        java.sql.PreparedStatement pst = conn.prepareStatement(sql);
+        java.sql.ResultSet res = pst.executeQuery();
+
+        int no = 1;
+        while (res.next()) {
+            model.addRow(new Object[]{
+                no++,
+                res.getString("nama_produk"),
+                res.getString("total_qty") + " Pcs"
+            });
+        }
+        jTable1.setModel(model);
+
+    } catch (SQLException e) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Gagal memuat data: " + e.getMessage());
+    }
+}
 }

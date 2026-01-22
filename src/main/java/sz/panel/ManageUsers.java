@@ -73,7 +73,7 @@ public final class ManageUsers extends javax.swing.JPanel {
         jScrollPane1.setViewportView(jTable1);
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(0, 110, 1230, 610);
+        jScrollPane1.setBounds(0, 110, 1240, 610);
 
         jPanel2.setBackground(new java.awt.Color(51, 204, 255));
         jPanel2.setPreferredSize(new java.awt.Dimension(857, 75));

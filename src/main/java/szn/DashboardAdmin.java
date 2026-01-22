@@ -59,7 +59,7 @@ public class DashboardAdmin extends javax.swing.JFrame {
                 lblProfileMouseClicked(evt);
             }
         });
-        jPanel7.add(lblProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 30, 226, -1));
+        jPanel7.add(lblProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 30, 226, -1));
 
         btnLogout.setBackground(new java.awt.Color(255, 0, 0));
         btnLogout.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -71,7 +71,7 @@ public class DashboardAdmin extends javax.swing.JFrame {
                 btnLogoutActionPerformed(evt);
             }
         });
-        jPanel7.add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 60, 226, -1));
+        jPanel7.add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 60, 226, -1));
 
         jPanel6.setBackground(new java.awt.Color(0, 204, 204));
         jPanel6.setPreferredSize(new java.awt.Dimension(180, 420));
@@ -106,9 +106,9 @@ public class DashboardAdmin extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panelContent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panelContent, javax.swing.GroupLayout.DEFAULT_SIZE, 1177, Short.MAX_VALUE)
                 .addContainerGap())
-            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 1361, Short.MAX_VALUE)
+            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
