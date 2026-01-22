@@ -120,7 +120,7 @@
                   <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                   <Component id="btnRefresh" min="-2" pref="70" max="-2" attributes="0"/>
                   <EmptySpace pref="468" max="32767" attributes="0"/>
-                  <Component id="jTextField1" min="-2" pref="264" max="-2" attributes="0"/>
+                  <Component id="txtCari" min="-2" pref="264" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
@@ -140,7 +140,7 @@
                       </Group>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel1" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                          <Component id="jTextField1" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                          <Component id="txtCari" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="47" max="32767" attributes="0"/>
@@ -175,9 +175,10 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnHapusActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField1">
+        <Component class="javax.swing.JTextField" name="txtCari">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCariActionPerformed"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCariKeyReleased"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">

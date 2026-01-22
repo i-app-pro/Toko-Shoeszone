@@ -150,6 +150,11 @@ public class Transaksi extends javax.swing.JPanel {
         btnHapus.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnHapus.setForeground(new java.awt.Color(255, 255, 255));
         btnHapus.setText("Hapus");
+        btnHapus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHapusActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -159,9 +164,9 @@ public class Transaksi extends javax.swing.JPanel {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 723, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addComponent(txtJumlah, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(46, 46, 46)
                 .addComponent(btnTambah, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(50, 50, 50)
                 .addComponent(btnHapus, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -170,11 +175,10 @@ public class Transaksi extends javax.swing.JPanel {
             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(47, 47, 47)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnHapus, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtJumlah, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnTambah, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtJumlah, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnTambah, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnHapus, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(53, Short.MAX_VALUE))
         );
 
@@ -211,19 +215,20 @@ public class Transaksi extends javax.swing.JPanel {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 727, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(lblTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(192, 192, 192)
-                        .addComponent(btnSimpanTransaksi, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(btnSimpanTransaksi, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(203, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29))))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addGap(34, 34, 34)
                 .addComponent(lblTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addGap(18, 18, 18)
                 .addComponent(btnSimpanTransaksi, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(37, Short.MAX_VALUE))
             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
@@ -490,6 +495,33 @@ public class Transaksi extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtAlamatActionPerformed
 
+    private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusActionPerformed
+        // TODO add your handling code here:
+ // 1. Ambil baris yang dipilih oleh user di tabel keranjang
+    int row = tblKeranjang.getSelectedRow();
+    
+    // 2. Cek apakah ada baris yang dipilih
+    if (row != -1) {
+        DefaultTableModel model = (DefaultTableModel) tblKeranjang.getModel();
+        
+        // 3. Konfirmasi penghapusan (Opsional, agar tidak sengaja terhapus)
+        int confirm = javax.swing.JOptionPane.showConfirmDialog(this, 
+                "Hapus item ini dari keranjang?", "Konfirmasi", 
+                javax.swing.JOptionPane.YES_NO_OPTION);
+        
+        if (confirm == javax.swing.JOptionPane.YES_OPTION) {
+            // 4. Hapus baris dari model tabel
+            model.removeRow(row);
+            
+            // 5. PENTING: Hitung ulang total belanjaan
+            updateTotalKeuntungan(); 
+        }
+    } else {
+        // Jika user klik tombol hapus tapi belum pilih baris di tabel
+        javax.swing.JOptionPane.showMessageDialog(this, "Silakan pilih item di tabel keranjang yang ingin dihapus!");
+    }
+    }//GEN-LAST:event_btnHapusActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnHapus;
@@ -581,5 +613,19 @@ private void resetTransaksi() {
     lblTotal.setText("Total : Rp 0");
     txtJumlah.setText("");
         int idPelanggan = 0;
+}
+private void updateTotalKeuntungan() {
+    double total = 0;
+    DefaultTableModel model = (DefaultTableModel) tblKeranjang.getModel();
+    
+    for (int i = 0; i < model.getRowCount(); i++) {
+        // Ambil nilai dari kolom Subtotal (asumsi kolom subtotal ada di indeks ke-4)
+        // Sesuaikan angka 4 dengan urutan kolom subtotal Anda (0, 1, 2, 3, 4...)
+        double subtotal = Double.parseDouble(model.getValueAt(i, 4).toString().replace("Rp ", "").replace(",", ""));
+        total += subtotal;
+    }
+    
+    // Tampilkan hasil ke label total
+    lblTotal.setText("Rp " + String.format("%,.0f", total));
 }
 }

@@ -44,7 +44,7 @@ public final class ManageUsers extends javax.swing.JPanel {
         btnTambah = new javax.swing.JButton();
         btnEdit = new javax.swing.JButton();
         btnHapus = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        txtCari = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         btnRefresh = new javax.swing.JButton();
 
@@ -101,9 +101,14 @@ public final class ManageUsers extends javax.swing.JPanel {
             }
         });
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txtCari.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                txtCariActionPerformed(evt);
+            }
+        });
+        txtCari.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtCariKeyReleased(evt);
             }
         });
 
@@ -130,7 +135,7 @@ public final class ManageUsers extends javax.swing.JPanel {
                 .addGap(37, 37, 37)
                 .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 468, Short.MAX_VALUE)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtCari, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
                 .addGap(43, 43, 43))
@@ -147,7 +152,7 @@ public final class ManageUsers extends javax.swing.JPanel {
                         .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtCari, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(47, Short.MAX_VALUE))
         );
 
@@ -205,13 +210,20 @@ public final class ManageUsers extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTable1PropertyChange
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txtCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCariActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txtCariActionPerformed
 
     private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
         // TODO add your handling code here:
+        txtCari.setText(""); 
+        refreshData();
     }//GEN-LAST:event_btnRefreshActionPerformed
+
+    private void txtCariKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCariKeyReleased
+        // TODO add your handling code here:
+        cariData();
+    }//GEN-LAST:event_txtCariKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -223,11 +235,11 @@ public final class ManageUsers extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private static javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField txtCari;
     // End of variables declaration//GEN-END:variables
 
     public void refreshData() {
-try {
+        try {
             DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
             model.setRowCount(0);
 
@@ -249,6 +261,39 @@ try {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
     }
+    
+private void cariData() {
+    DefaultTableModel model = new DefaultTableModel();
+    model.addColumn("ID");
+    model.addColumn("Nama Pegawai");
+    model.addColumn("Jabatan");
+    model.addColumn("Username");
+
+    try {
+        String keyword = txtCari.getText();
+        // Query menggunakan nama kolom sesuai gambar database Anda
+        String sql = "SELECT id_pegawai, nama_pegawai, jabatan, username FROM pegawai " +
+                     "WHERE nama_pegawai LIKE '%" + keyword + "%' " +
+                     "OR jabatan LIKE '%" + keyword + "%' " +
+                     "OR username LIKE '%" + keyword + "%'";
+
+        java.sql.Connection conn = sz.util.Koneksi.Go();
+        java.sql.ResultSet res = conn.createStatement().executeQuery(sql);
+
+        while (res.next()) {
+            model.addRow(new Object[]{
+                res.getString("id_pegawai"), // Nama kolom sesuai gambar
+                res.getString("nama_pegawai"),
+                res.getString("jabatan"),
+                res.getString("username")
+            });
+        }
+        jTable1.setModel(model);
+
+    } catch (SQLException e) {
+        System.err.println("Error Cari: " + e.getMessage());
     }
+}
+}
  
 
