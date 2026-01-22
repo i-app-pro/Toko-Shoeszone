@@ -7,6 +7,7 @@ package szn;
 import java.awt.BorderLayout;
 import java.awt.Frame;
 import javax.swing.JPanel;
+import sz.dialog.ProfileUser;
 import sz.panel.ManageProduct;
 import sz.panel.ManageUsers;
 import sz.util.Users;
@@ -37,7 +38,7 @@ public class DashboardAdmin extends javax.swing.JFrame {
 
         panelContent = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        lblProfile = new javax.swing.JLabel();
         btnLogout = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
@@ -51,9 +52,14 @@ public class DashboardAdmin extends javax.swing.JFrame {
         jPanel7.setBackground(new java.awt.Color(0, 255, 255));
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel1.setText("jLabel1");
-        jPanel7.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 30, 226, -1));
+        lblProfile.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblProfile.setText("jLabel1");
+        lblProfile.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblProfileMouseClicked(evt);
+            }
+        });
+        jPanel7.add(lblProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 30, 226, -1));
 
         btnLogout.setBackground(new java.awt.Color(255, 0, 0));
         btnLogout.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -133,6 +139,13 @@ public class DashboardAdmin extends javax.swing.JFrame {
         P.setExtendedState(Frame.MAXIMIZED_BOTH); 
     }//GEN-LAST:event_btnLogoutActionPerformed
 
+    private void lblProfileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblProfileMouseClicked
+        // TODO add your handling code here:
+        ProfileUser p = new ProfileUser();
+        p.setVisible(true);
+        p.setLocationRelativeTo(this); // tampil tengah
+    }//GEN-LAST:event_lblProfileMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -162,9 +175,9 @@ public class DashboardAdmin extends javax.swing.JFrame {
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JLabel lblProfile;
     private javax.swing.JPanel panelContent;
     // End of variables declaration//GEN-END:variables
 

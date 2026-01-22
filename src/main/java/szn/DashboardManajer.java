@@ -5,6 +5,7 @@
 package szn;
 
 import java.awt.Frame;
+import sz.dialog.ProfileUser;
 
 /**
  *
@@ -134,6 +135,11 @@ public class DashboardManajer extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setText("jLabel1");
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
         jPanel7.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 30, 226, -1));
 
         jButton2.setBackground(new java.awt.Color(255, 0, 0));
@@ -207,6 +213,13 @@ public class DashboardManajer extends javax.swing.JFrame {
     private void btnLabaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLabaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnLabaActionPerformed
+
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        // TODO add your handling code here:
+        ProfileUser p = new ProfileUser();
+        p.setVisible(true);
+        p.setLocationRelativeTo(this); // tampil tengah
+    }//GEN-LAST:event_jLabel1MouseClicked
 
     /**
      * @param args the command line arguments
