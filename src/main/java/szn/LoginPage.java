@@ -5,10 +5,13 @@
 package szn;
 
 import java.awt.Frame;
+import java.awt.HeadlessException;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.JOptionPane;
 import sz.util.Koneksi;
 import sz.util.Users;
 
@@ -145,106 +148,54 @@ public class LoginPage extends javax.swing.JFrame {
 
     
     private void Login() {
-    String usr = txtUsername.getText();
-    // Gunakan getPassword() dan konversi ke String HANYA untuk perbandingan sementara.
-    String pwd = new String(txtPassword.getPassword()); 
-    
-    // Gunakan try-with-resources untuk memastikan Connection dan PreparedStatement ditutup
-    try (Connection K = Koneksi.Go();
-         java.sql.PreparedStatement PS = K.prepareStatement(
-             "SELECT id_user, nama, Email, Username, password FROM Users WHERE Username = ? AND password = ?"
-         )) {
-        
-        PS.setString(1, usr); // Mengganti tanda tanya pertama (?) dengan nilai username
-        PS.setString(2, pwd); // Mengganti tanda tanya kedua (?) dengan nilai password
-        
-        try (ResultSet RS = PS.executeQuery()) {
-            int n = 0;
-            Users Us = new Users();
-            
-            if (RS.next()) {
-                Users.setId(RS.getInt("id_user"));
-                Users.setNama(RS.getString("nama"));
-                Users.setEmail(RS.getString("Email"));
-                Users.setUsername(RS.getString("Username"));
-                Users.setPassword(RS.getString("password"));
+     String username = txtUsername.getText();
+    String password = new String(txtPassword.getPassword());
 
-                this.dispose(); // TUTUP LOGIN
+    if (username.isEmpty() || password.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Username dan Password wajib diisi!");
+        return;
+    }
 
-                DashboardAdmin DA = new DashboardAdmin();
-                DA.setExtendedState(Frame.MAXIMIZED_BOTH);
-                DA.setVisible(true);
+    try {
+        Connection con = Koneksi.Go();
+        String sql = "SELECT * FROM users WHERE username=? AND password=?";
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setString(1, username);
+        ps.setString(2, password);
 
-            } else {
-                javax.swing.JOptionPane.showMessageDialog(this, "Username atau Password salah.");
+        ResultSet rs = ps.executeQuery();
+
+        if (rs.next()) {
+
+            // SIMPAN SESSION
+            Users.setId(rs.getInt("id_users"));
+            Users.setNama(rs.getString("nama"));
+            Users.setEmail(rs.getString("email"));
+            Users.setUsername(rs.getString("username"));
+            Users.setPassword(rs.getString("password"));
+            Users.setJabatan(rs.getString("jabatan"));
+
+            // REDIRECT SESUAI JABATAN
+            switch (Users.getJabatan().toUpperCase()) {
+                case "ADMIN" -> new DashboardAdmin().setVisible(true);
+                case "KASIR" -> new DashboardKasir().setVisible(true);
+                case "MANAJER" -> new DashboardManajer().setVisible(true);
+                default -> {
+                    JOptionPane.showMessageDialog(this,
+                        "Jabatan tidak dikenali: " + Users.getJabatan());
+                    return;
+                }
             }
 
+            this.dispose(); // tutup login
+
+        } else {
+            JOptionPane.showMessageDialog(this, "Username atau Password salah!");
         }
+
     } catch (SQLException e) {
-        javax.swing.JOptionPane.showMessageDialog(this, "Terjadi error koneksi database:\n" + e.getMessage());
-        logger.log(java.util.logging.Level.SEVERE, "SQL Error during login", e);
+        JOptionPane.showMessageDialog(this, e.getMessage());
     }
-    }
+  }
 }
-    
-    
-    
 
-
-//    private void Login() {
-//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-//    }
-//}
-//    private void Login() {
-//        String usr = txtUsername.getText();
-//        String pwd = new String(txtPassword.getPassword());
-//        try {
-//            Connection K = Koneksi.Go();
-//            Statement ST = K.createStatement();
-//            String Q = "SELECT * FROM Users "
-//                    + "WHERE "
-//                    + "username='" + usr + "' AND "
-//                    + "password='" + pwd + "'";
-//            ResultSet RS = ST.executeQuery(Q);
-//            int n = 0;
-//            Users Usr = new Users();
-//            while (RS.next()) {
-//                n++;
-//                Users.setId(RS.getInt("id_user"));
-//                Users.setNama(RS.getString("nama"));
-//                Users.setJabatan(RS.getString("email"));
-//                Users.setUsername(RS.getString("username"));
-//                Users.setPassword(RS.getString("password"));
-//            }
-//            if (n > 0) {
-//                switch (Users.getUsername()) {
-//                    case "kasir2" -> {
-//                        this.setVisible(false);
-//                        DashboardAdmin DA = new DashboardAdmin();
-//                        DA.Users = Usr;
-//                        DA.setVisible(true);
-//                        DA.setExtendedState(Frame.MAXIMIZED_BOTH);
-//                    }
-//                    case "kasir1" -> {
-//                    }
-//                    case "admin" -> {
-//                    }
-//                    default -> {
-//                    }
-//                }
-//                //kita redirect ke dashboard kasir
-//                //kita redirect ke dashboard manajer
-//                //opsional
-//                            } else {
-//                System.err.println("Akun tidak ditemukan");
-//            }
-//        } catch (SQLException e) {
-//            javax.swing.JOptionPane.showMessageDialog(this, "Terjadi error:\n" + e.getMessage());
-//        }
-//        
-//        
-//            
-//        
-//
-//    }
-//}

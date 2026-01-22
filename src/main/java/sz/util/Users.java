@@ -10,7 +10,7 @@ package sz.util;
  */
 public class Users {
     // 1. Variabel "Loker" (pakai static)
-    private static int id;
+    private static int id_users;
     private static String nama;
     private static String jabatan;
     private static String username;
@@ -32,7 +32,7 @@ public class Users {
     // Ini akan dipanggil dari LoginPage.java
     
     public static void setId(int id) {
-        Users.id = id;
+        Users.id_users = id;
     }
 
     public static void setNama(String nama) {
@@ -56,7 +56,7 @@ public class Users {
     // Ini akan dipanggil dari Profile.java (atau form lain)
     
     public static int getId() {
-        return id;
+        return id_users;
     }
 
     public static String getNama() {

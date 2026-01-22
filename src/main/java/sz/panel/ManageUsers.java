@@ -3,11 +3,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package sz.panel;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import sz.dialog.AddNewUsers;
+import sz.dialog.DeleteUsers;
+import sz.dialog.EditDataUsers;
 import sz.util.Koneksi;
 import sz.util.Pegawai;
 /**
@@ -15,16 +20,13 @@ import sz.util.Pegawai;
  * @author ADVAN
  */
 public final class ManageUsers extends javax.swing.JPanel {
+    Pegawai Pg = null;
 
-    Pegawai Pg;
-
-    /**
-     * Creates new form ManageUsers
-     */
     public ManageUsers() {
         initComponents();
-        
-        refreshData();
+         refreshData();
+        btnEdit.setEnabled(false);
+        btnHapus.setEnabled(false);
     }
 
     /**
@@ -42,9 +44,9 @@ public final class ManageUsers extends javax.swing.JPanel {
         btnTambah = new javax.swing.JButton();
         btnEdit = new javax.swing.JButton();
         btnHapus = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        btnRefresh = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(null);
@@ -99,13 +101,6 @@ public final class ManageUsers extends javax.swing.JPanel {
             }
         });
 
-        jButton4.setText("Refresh");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
@@ -113,6 +108,13 @@ public final class ManageUsers extends javax.swing.JPanel {
         });
 
         jLabel1.setText("Cari");
+
+        btnRefresh.setText("Refresh");
+        btnRefresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRefreshActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -125,9 +127,9 @@ public final class ManageUsers extends javax.swing.JPanel {
                 .addComponent(btnEdit)
                 .addGap(48, 48, 48)
                 .addComponent(btnHapus)
-                .addGap(48, 48, 48)
-                .addComponent(jButton4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 404, Short.MAX_VALUE)
+                .addGap(36, 36, 36)
+                .addComponent(btnRefresh)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 416, Short.MAX_VALUE)
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
@@ -140,8 +142,9 @@ public final class ManageUsers extends javax.swing.JPanel {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnTambah, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnHapus, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnHapus, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -162,45 +165,40 @@ public final class ManageUsers extends javax.swing.JPanel {
     }//GEN-LAST:event_btnTambahActionPerformed
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
-//        EditUser Usr = new EditUser(null, true);
-//        Usr.Pg = Pg;
-//        Usr.setVisible(true);
+                                     
+    if (Pg == null) {
+            JOptionPane.showMessageDialog(this, "Pilih user terlebih dahulu");
+            return;
+        }
+        EditDataUsers edit = new EditDataUsers(Pg);
+        edit.setVisible(true);
+        edit.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnEditActionPerformed
 
     private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusActionPerformed
-//        DeleteData DD = new DeleteData(null, true);
-//        DD.P = Pg;
-//        DD.setVisible(true);
-
+        if (Pg == null) {
+            JOptionPane.showMessageDialog(this, "Pilih user terlebih dahulu");
+            return;
+        }
+        DeleteUsers del = new DeleteUsers(Pg);
+        del.setVisible(true);
+        del.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnHapusActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        btnEdit.setEnabled(false);
-        btnHapus.setEnabled(false);
-        jTable1.clearSelection();
-    }//GEN-LAST:event_jButton4ActionPerformed
-
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-        int n = jTable1.getSelectedRow();
-        if(n != -1){
-            btnEdit.setEnabled(true);
-            btnHapus.setEnabled(true);
+        int row = jTable1.getSelectedRow();
+        if (row < 0) return;
 
-            //capture data
-            Object IDPg = jTable1.getValueAt(n, 0);
-            int ID = Integer.parseInt(IDPg.toString());
-            String namaPg = jTable1.getValueAt(n, 1).toString();
-            String jabatanPg = jTable1.getValueAt(n, 2).toString();
-            String usernamePg = jTable1.getValueAt(n, 3).toString();
-            String passwordPg = jTable1.getValueAt(n, 4).toString();
-            Pg = new Pegawai();
-            Pg.setIdp(ID);
-            Pg.setNp(namaPg);
-            Pg.setJabatan(jabatanPg);
-            Pg.setUnam(usernamePg);
-            Pg.setPgw(passwordPg);
-        }else {
-        }
+        btnEdit.setEnabled(true);
+        btnHapus.setEnabled(true);
+
+        Pg = new Pegawai();
+        Pg.setIdp(Integer.parseInt(jTable1.getValueAt(row, 0).toString()));
+        Pg.setNp(jTable1.getValueAt(row, 1).toString());
+        Pg.setJabatan(jTable1.getValueAt(row, 2).toString());
+        Pg.setUnam(jTable1.getValueAt(row, 3).toString());
+        Pg.setPgw(jTable1.getValueAt(row, 4).toString());
+    
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void jTable1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jTable1PropertyChange
@@ -211,12 +209,16 @@ public final class ManageUsers extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
+    private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRefreshActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnHapus;
+    private javax.swing.JButton btnRefresh;
     private javax.swing.JButton btnTambah;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
@@ -225,27 +227,28 @@ public final class ManageUsers extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     public void refreshData() {
-             try {
+try {
             DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-            for (int i = model.getRowCount()-1; i >=0; i--) {
-                model.removeRow(i); 
-            }
-            
+            model.setRowCount(0);
+
             Connection K = Koneksi.Go();
-            String Q = "SELECT * FROM pegawai";
             Statement S = K.createStatement();
-            ResultSet R = S.executeQuery(Q);
-            while (R.next()){                
-                int id = R.getInt("id_pegawai");
-                String nama = R.getString("nama_pegawai");
-                String jabatan = R.getString("jabatan");
-                String username = R.getString("username_p");
-                String password = R.getString("password_hash");
-                Object[] datausers = {id,nama,jabatan,username,password};
-                model.addRow(datausers); 
+            ResultSet R = S.executeQuery("SELECT * FROM pegawai");
+
+            while (R.next()) {
+                Object[] row = {
+                    R.getInt("id_pegawai"),
+                    R.getString("nama_pegawai"),
+                    R.getString("jabatan"),
+                    R.getString("username"),
+                    R.getString("password_hash")
+                };
+                model.addRow(row);
             }
-            
-        } catch (Exception e) {
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
         }
     }
-}
+    }
+ 
+

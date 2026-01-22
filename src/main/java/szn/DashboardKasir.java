@@ -4,6 +4,7 @@
  */
 package szn;
 
+import java.awt.Frame;
 import sz.util.Pegawai;
 
 /**
@@ -13,7 +14,7 @@ import sz.util.Pegawai;
 public class DashboardKasir extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(DashboardKasir.class.getName());
-    Pegawai P;
+    Pegawai p;
 
     /**
      * Creates new form DashboardKasir
@@ -127,7 +128,10 @@ public class DashboardKasir extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-
+        LoginPage lp = new LoginPage();
+        this.setVisible(false); 
+        lp.setVisible(true); 
+        lp.setExtendedState(Frame.MAXIMIZED_BOTH); 
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void btnTransaksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransaksiActionPerformed

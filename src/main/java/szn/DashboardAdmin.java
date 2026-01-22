@@ -38,7 +38,7 @@ public class DashboardAdmin extends javax.swing.JFrame {
         panelContent = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        btnLogout = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -55,17 +55,17 @@ public class DashboardAdmin extends javax.swing.JFrame {
         jLabel1.setText("jLabel1");
         jPanel7.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 30, 226, -1));
 
-        jButton2.setBackground(new java.awt.Color(255, 0, 0));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Logout");
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnLogout.setBackground(new java.awt.Color(255, 0, 0));
+        btnLogout.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnLogout.setForeground(new java.awt.Color(255, 255, 255));
+        btnLogout.setText("Logout");
+        btnLogout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnLogoutActionPerformed(evt);
             }
         });
-        jPanel7.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 60, 226, -1));
+        jPanel7.add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 60, 226, -1));
 
         jPanel6.setBackground(new java.awt.Color(0, 204, 204));
         jPanel6.setPreferredSize(new java.awt.Dimension(180, 420));
@@ -125,13 +125,13 @@ public class DashboardAdmin extends javax.swing.JFrame {
         AddViews(new ManageProduct());
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         // TODO add your handling code here:
         LoginPage P = new LoginPage();
         this.setVisible(false); 
         P.setVisible(true); 
         P.setExtendedState(Frame.MAXIMIZED_BOTH); 
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnLogoutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -159,8 +159,8 @@ public class DashboardAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnLogout;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel6;

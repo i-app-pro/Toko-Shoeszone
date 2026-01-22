@@ -4,18 +4,20 @@
  */
 package szn;
 
+import java.awt.Frame;
+
 /**
  *
  * @author ADVAN
  */
-public class DashboardManager extends javax.swing.JFrame {
+public class DashboardManajer extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(DashboardManager.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(DashboardManajer.class.getName());
 
     /**
      * Creates new form DashboardManager
      */
-    public DashboardManager() {
+    public DashboardManajer() {
         initComponents();
     }
 
@@ -184,6 +186,10 @@ public class DashboardManager extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+                LoginPage P = new LoginPage();
+        this.setVisible(false); 
+        P.setVisible(true); 
+        P.setExtendedState(Frame.MAXIMIZED_BOTH); 
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void btnProdukTerjualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProdukTerjualActionPerformed
@@ -224,7 +230,7 @@ public class DashboardManager extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new DashboardManager().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new DashboardManajer().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
