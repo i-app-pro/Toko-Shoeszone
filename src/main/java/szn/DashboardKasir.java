@@ -4,9 +4,14 @@
  */
 package szn;
 
+import java.awt.BorderLayout;
 import java.awt.Frame;
+import javax.swing.JPanel;
 import sz.dialog.ProfileUser;
+import sz.panel.Transaksi;
 import sz.util.Pegawai;
+import sz.panel.LaporanHarian;
+import sz.panel.RiwayatTransaksi;
 
 /**
  *
@@ -39,8 +44,8 @@ public class DashboardKasir extends javax.swing.JFrame {
         jPanel6 = new javax.swing.JPanel();
         btnTransaksi = new javax.swing.JButton();
         btnRiwayatTransaksi = new javax.swing.JButton();
-        btnLaporanHarian1 = new javax.swing.JButton();
-        panelContent = new javax.swing.JPanel();
+        btnLaporanHarian = new javax.swing.JButton();
+        contentPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -94,19 +99,19 @@ public class DashboardKasir extends javax.swing.JFrame {
         });
         jPanel6.add(btnRiwayatTransaksi, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 210, 40));
 
-        btnLaporanHarian1.setBackground(new java.awt.Color(255, 255, 102));
-        btnLaporanHarian1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnLaporanHarian1.setText("Laporan Harian");
-        btnLaporanHarian1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnLaporanHarian1.addActionListener(new java.awt.event.ActionListener() {
+        btnLaporanHarian.setBackground(new java.awt.Color(255, 255, 102));
+        btnLaporanHarian.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnLaporanHarian.setText("Laporan Harian");
+        btnLaporanHarian.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLaporanHarian.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLaporanHarian1ActionPerformed(evt);
+                btnLaporanHarianActionPerformed(evt);
             }
         });
-        jPanel6.add(btnLaporanHarian1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 210, 40));
+        jPanel6.add(btnLaporanHarian, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 210, 40));
 
-        panelContent.setBackground(new java.awt.Color(0, 153, 153));
-        panelContent.setLayout(new java.awt.BorderLayout());
+        contentPanel.setBackground(new java.awt.Color(0, 153, 153));
+        contentPanel.setLayout(new java.awt.BorderLayout());
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -115,7 +120,7 @@ public class DashboardKasir extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(panelContent, javax.swing.GroupLayout.PREFERRED_SIZE, 1168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(contentPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1168, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -126,7 +131,7 @@ public class DashboardKasir extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 614, Short.MAX_VALUE)
-                    .addComponent(panelContent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(contentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         pack();
@@ -141,22 +146,32 @@ public class DashboardKasir extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void btnTransaksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransaksiActionPerformed
-
+    Transaksi panel = new Transaksi();
+    showPanel(panel);
     }//GEN-LAST:event_btnTransaksiActionPerformed
 
     private void btnRiwayatTransaksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRiwayatTransaksiActionPerformed
-
+    RiwayatTransaksi panel = new RiwayatTransaksi();
+    contentPanel.removeAll();
+    contentPanel.add(panel); // Pastikan nama class panelnya benar
+    contentPanel.repaint();
+    contentPanel.revalidate();
     }//GEN-LAST:event_btnRiwayatTransaksiActionPerformed
 
-    private void btnLaporanHarian1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLaporanHarian1ActionPerformed
+    private void btnLaporanHarianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLaporanHarianActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnLaporanHarian1ActionPerformed
+    LaporanHarian panel = new LaporanHarian();
+    contentPanel.removeAll();
+    contentPanel.add(panel);
+    contentPanel.repaint();
+    contentPanel.revalidate();
+    }//GEN-LAST:event_btnLaporanHarianActionPerformed
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
         // TODO add your handling code here:
-        ProfileUser p = new ProfileUser();
-        p.setVisible(true);
-        p.setLocationRelativeTo(this); // tampil tengah
+        ProfileUser pu = new ProfileUser();
+        pu.setVisible(true);
+        pu.setLocationRelativeTo(this); // tampil tengah
     }//GEN-LAST:event_jLabel1MouseClicked
 
     /**
@@ -185,13 +200,20 @@ public class DashboardKasir extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnLaporanHarian1;
+    private javax.swing.JButton btnLaporanHarian;
     private javax.swing.JButton btnRiwayatTransaksi;
     private javax.swing.JButton btnTransaksi;
+    private javax.swing.JPanel contentPanel;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel panelContent;
     // End of variables declaration//GEN-END:variables
+
+    private void showPanel(JPanel panel) {
+        contentPanel.removeAll();
+        contentPanel.add(panel, BorderLayout.CENTER);
+        contentPanel.repaint();
+        contentPanel.revalidate();
+    }
 }
