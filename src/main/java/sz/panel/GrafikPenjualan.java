@@ -42,13 +42,6 @@ public class GrafikPenjualan extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
-        jPanel1 = new javax.swing.JPanel();
-        spinnerMulai = new javax.swing.JSpinner();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        spinnerSampai = new javax.swing.JSpinner();
-        btnCari = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         pnlGrafik = new javax.swing.JPanel() {
             @Override
@@ -97,29 +90,24 @@ public class GrafikPenjualan extends javax.swing.JPanel {
                 g2.drawLine(pad, pad, pad, getHeight() - pad); // Garis Y
             }
         };
+        btnCari = new javax.swing.JButton();
+        spinnerSampai = new javax.swing.JSpinner();
+        spinnerMulai = new javax.swing.JSpinner();
+        jLabel3 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 153, 153));
         setForeground(new java.awt.Color(51, 255, 255));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("GRAFIK PENJUALAN");
 
-        jSeparator1.setForeground(new java.awt.Color(51, 255, 255));
+        pnlGrafik.setBackground(new java.awt.Color(153, 255, 255));
+        pnlGrafik.setLayout(new java.awt.GridLayout(0, 1));
+        jScrollPane2.setViewportView(pnlGrafik);
 
-        jPanel1.setBackground(new java.awt.Color(102, 255, 255));
-
-        spinnerMulai.setModel(new javax.swing.SpinnerDateModel());
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel2.setText("PILIH PERIODE");
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel3.setText("S/D");
-
-        spinnerSampai.setModel(new javax.swing.SpinnerDateModel());
-
+        btnCari.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         btnCari.setText("Cari");
         btnCari.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -127,66 +115,52 @@ public class GrafikPenjualan extends javax.swing.JPanel {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(spinnerMulai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel3)
-                .addGap(18, 18, 18)
-                .addComponent(spinnerSampai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(275, 275, 275)
-                .addComponent(btnCari)
-                .addContainerGap(390, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(spinnerMulai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3)
-                    .addComponent(spinnerSampai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCari))
-                .addContainerGap(38, Short.MAX_VALUE))
-        );
+        spinnerSampai.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        spinnerSampai.setModel(new javax.swing.SpinnerDateModel());
 
-        pnlGrafik.setBackground(new java.awt.Color(153, 255, 255));
-        pnlGrafik.setLayout(new java.awt.GridLayout(0, 1));
-        jScrollPane2.setViewportView(pnlGrafik);
+        spinnerMulai.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        spinnerMulai.setModel(new javax.swing.SpinnerDateModel());
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("S/D");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane2)
-                    .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(spinnerMulai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(30, 30, 30)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(34, 34, 34)
+                                .addComponent(spinnerSampai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(78, 78, 78)
+                                .addComponent(btnCari, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 121, Short.MAX_VALUE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 478, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(38, 38, 38)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(172, Short.MAX_VALUE))
+                .addGap(84, 84, 84)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(spinnerMulai)
+                    .addComponent(spinnerSampai)
+                    .addComponent(btnCari, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(180, 180, 180)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 335, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -198,11 +172,8 @@ public class GrafikPenjualan extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCari;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JPanel pnlGrafik;
     private javax.swing.JSpinner spinnerMulai;
     private javax.swing.JSpinner spinnerSampai;

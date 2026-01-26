@@ -31,7 +31,6 @@ public class ProdukTerjual extends javax.swing.JPanel {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jSeparator1 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 153, 153));
@@ -56,8 +55,6 @@ public class ProdukTerjual extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        jSeparator1.setForeground(new java.awt.Color(51, 255, 255));
-
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -69,9 +66,7 @@ public class ProdukTerjual extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1120, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator1)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addComponent(jScrollPane1)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -79,9 +74,7 @@ public class ProdukTerjual extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(15, 15, 15)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(132, Short.MAX_VALUE))
         );
@@ -95,7 +88,6 @@ public class ProdukTerjual extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSeparator jSeparator1;
     private static javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 private void loadDataTerjual() {

@@ -37,16 +37,13 @@ public class TotalLaba extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
         jPanel1 = new javax.swing.JPanel();
         spinnerMulai = new javax.swing.JSpinner();
         spinnerSampai = new javax.swing.JSpinner();
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jSeparator2 = new javax.swing.JSeparator();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jSeparator3 = new javax.swing.JSeparator();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         lblTotalLaba = new javax.swing.JLabel();
@@ -57,8 +54,6 @@ public class TotalLaba extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("LABA PENDAPATAN");
-
-        jSeparator1.setForeground(new java.awt.Color(51, 255, 255));
 
         jPanel1.setBackground(new java.awt.Color(51, 255, 255));
 
@@ -103,8 +98,6 @@ public class TotalLaba extends javax.swing.JPanel {
                 .addContainerGap(49, Short.MAX_VALUE))
         );
 
-        jSeparator2.setForeground(new java.awt.Color(51, 255, 255));
-
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -117,8 +110,6 @@ public class TotalLaba extends javax.swing.JPanel {
             }
         ));
         jScrollPane1.setViewportView(jTable1);
-
-        jSeparator3.setForeground(new java.awt.Color(51, 255, 255));
 
         jPanel2.setBackground(new java.awt.Color(0, 204, 204));
 
@@ -158,17 +149,12 @@ public class TotalLaba extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jSeparator2)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator1)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1)
                         .addContainerGap())
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jSeparator3)))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 698, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -179,17 +165,11 @@ public class TotalLaba extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(40, 40, 40)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(40, 40, 40)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(34, 34, 34)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(225, Short.MAX_VALUE))
         );
@@ -208,9 +188,6 @@ public class TotalLaba extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
     private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblTotalLaba;
     private javax.swing.JSpinner spinnerMulai;

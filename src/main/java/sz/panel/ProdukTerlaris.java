@@ -39,7 +39,6 @@ public class ProdukTerlaris extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
         jPanel1 = new javax.swing.JPanel();
         spinnerMulai = new javax.swing.JSpinner();
         jLabel2 = new javax.swing.JLabel();
@@ -55,8 +54,6 @@ public class ProdukTerlaris extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("LAPORAN PRODUK TERLARIS");
-
-        jSeparator1.setForeground(new java.awt.Color(102, 255, 255));
 
         jPanel1.setBackground(new java.awt.Color(102, 255, 255));
 
@@ -130,7 +127,6 @@ public class ProdukTerlaris extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator1)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane1))
                 .addContainerGap())
@@ -140,9 +136,7 @@ public class ProdukTerlaris extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(34, 34, 34)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 415, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -162,7 +156,6 @@ public class ProdukTerlaris extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTable1;
     private javax.swing.JSpinner spinnerMulai;
     private javax.swing.JSpinner spinnerSampai;

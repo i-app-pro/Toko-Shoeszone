@@ -33,7 +33,6 @@ public class RiwayatTransaksi extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblRiwayat = new javax.swing.JTable();
         btnRefresh = new javax.swing.JButton();
@@ -45,9 +44,6 @@ public class RiwayatTransaksi extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Riwayat Transaksi Penjualan");
-
-        jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
-        jSeparator1.setForeground(new java.awt.Color(0, 255, 255));
 
         tblRiwayat.setBackground(new java.awt.Color(51, 255, 255));
         tblRiwayat.setModel(new javax.swing.table.DefaultTableModel(
@@ -88,7 +84,6 @@ public class RiwayatTransaksi extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1129, Short.MAX_VALUE)
-            .addComponent(jSeparator1)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -102,9 +97,7 @@ public class RiwayatTransaksi extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtCari, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
                     .addComponent(btnRefresh, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -133,7 +126,6 @@ public class RiwayatTransaksi extends javax.swing.JPanel {
     private javax.swing.JButton btnRefresh;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable tblRiwayat;
     private javax.swing.JTextField txtCari;
     // End of variables declaration//GEN-END:variables
