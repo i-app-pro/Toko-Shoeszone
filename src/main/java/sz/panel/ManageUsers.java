@@ -52,6 +52,7 @@ public final class ManageUsers extends javax.swing.JPanel {
         setLayout(null);
 
         jTable1.setBackground(new java.awt.Color(51, 255, 255));
+        jTable1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 

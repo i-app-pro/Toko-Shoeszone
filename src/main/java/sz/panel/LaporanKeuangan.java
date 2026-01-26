@@ -163,6 +163,7 @@ public class LaporanKeuangan extends javax.swing.JPanel {
         );
 
         tabelLaporan.setBackground(new java.awt.Color(51, 255, 255));
+        tabelLaporan.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         tabelLaporan.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},

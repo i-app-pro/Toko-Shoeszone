@@ -56,6 +56,7 @@ public class KinerjaKasir extends javax.swing.JPanel {
         jLabel1.setText("LAPORAN KINERJA KASIR");
 
         jTable1.setBackground(new java.awt.Color(0, 255, 255));
+        jTable1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
