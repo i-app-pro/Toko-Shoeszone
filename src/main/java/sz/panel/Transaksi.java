@@ -137,6 +137,8 @@ public class Transaksi extends javax.swing.JPanel {
         btnTambah.setBackground(new java.awt.Color(0, 255, 255));
         btnTambah.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnTambah.setText("Tambah");
+        btnTambah.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnTambah.setBorderPainted(false);
         btnTambah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTambahActionPerformed(evt);
@@ -147,6 +149,8 @@ public class Transaksi extends javax.swing.JPanel {
         btnHapus.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnHapus.setForeground(new java.awt.Color(255, 255, 255));
         btnHapus.setText("Hapus");
+        btnHapus.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnHapus.setBorderPainted(false);
         btnHapus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnHapusActionPerformed(evt);
@@ -159,11 +163,11 @@ public class Transaksi extends javax.swing.JPanel {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 723, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 135, Short.MAX_VALUE)
                 .addComponent(btnHapus, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(74, 74, 74)
-                .addComponent(btnTambah)
-                .addGap(125, 125, 125))
+                .addComponent(btnTambah, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(102, 102, 102))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -195,6 +199,8 @@ public class Transaksi extends javax.swing.JPanel {
         btnSimpanTransaksi.setBackground(new java.awt.Color(51, 255, 255));
         btnSimpanTransaksi.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnSimpanTransaksi.setText("Simpan");
+        btnSimpanTransaksi.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnSimpanTransaksi.setBorderPainted(false);
         btnSimpanTransaksi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSimpanTransaksiActionPerformed(evt);
@@ -272,9 +278,6 @@ public class Transaksi extends javax.swing.JPanel {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1161, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(12, 12, 12)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -300,15 +303,19 @@ public class Transaksi extends javax.swing.JPanel {
                                         .addGap(18, 18, 18)
                                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(txtNama, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE)
-                                            .addComponent(txtAlamat))))))
-                        .addGap(0, 59, Short.MAX_VALUE)))
+                                            .addComponent(txtAlamat)))))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtIdTransaksi, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -468,8 +475,8 @@ public class Transaksi extends javax.swing.JPanel {
         parent.revalidate();
         parent.repaint();
 
-    } catch (Exception e) {
-        try { if(con!=null) con.rollback(); } catch(Exception ex){}
+    } catch (NumberFormatException | SQLException e) {
+        try { if(con!=null) con.rollback(); } catch(SQLException ex){}
         JOptionPane.showMessageDialog(this, "Sistem Error: " + e.getMessage());
         e.printStackTrace(); 
     }
@@ -681,7 +688,7 @@ private void setAutoID() {
         }
         // Kunci kolom agar tidak bisa diedit manual
         txtIdTransaksi.setEditable(false); 
-    } catch (Exception e) {
+    } catch (SQLException e) {
         txtIdTransaksi.setText("1");
     }
 }

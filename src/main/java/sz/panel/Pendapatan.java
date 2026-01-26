@@ -14,12 +14,12 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author ADVAN
  */
-public class TotalLaba extends javax.swing.JPanel {
+public class Pendapatan extends javax.swing.JPanel {
 
     /**
      * Creates new form TotalPendapatan
      */
-    public TotalLaba() {
+    public Pendapatan() {
         initComponents();
         spinnerMulai.setModel(new javax.swing.SpinnerDateModel());
         spinnerSampai.setModel(new javax.swing.SpinnerDateModel());
@@ -42,141 +42,132 @@ public class TotalLaba extends javax.swing.JPanel {
         spinnerSampai = new javax.swing.JSpinner();
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        lblTotalLaba = new javax.swing.JLabel();
+        lblTotalPendapatan = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 153, 153));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("LABA PENDAPATAN");
+        jLabel1.setText("TOTAL PENDAPATAN");
 
-        jPanel1.setBackground(new java.awt.Color(51, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
+        spinnerMulai.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         spinnerMulai.setModel(new javax.swing.SpinnerDateModel());
 
+        spinnerSampai.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         spinnerSampai.setModel(new javax.swing.SpinnerDateModel());
 
-        jButton1.setText("Cari");
+        jButton1.setBackground(new java.awt.Color(0, 204, 255));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jButton1.setText("Search");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel2.setText("S/D");
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel4.setText("PILIH TANGGAL");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addComponent(spinnerMulai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(17, 17, 17)
-                .addComponent(jLabel2)
+                .addGap(23, 23, 23)
+                .addComponent(jLabel4)
                 .addGap(18, 18, 18)
+                .addComponent(spinnerMulai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
+                .addComponent(jLabel2)
+                .addGap(35, 35, 35)
                 .addComponent(spinnerSampai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
+                .addGap(62, 62, 62)
                 .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(147, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
                     .addComponent(spinnerMulai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(spinnerSampai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
+                    .addComponent(spinnerSampai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1))
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jTable1.setBackground(new java.awt.Color(0, 255, 255));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "No", "Tanggal", "Nama Produk", "Qty", "Laba"
+                "No", "Tanggal", "ID Transaksi", "Total Transaksi"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jPanel2.setBackground(new java.awt.Color(0, 204, 204));
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel3.setText("PENDAPATAN :");
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel3.setText("Total Laba Pendapatan");
-
-        lblTotalLaba.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        lblTotalLaba.setText(" Jumlah Laba");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel3))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(134, 134, 134)
-                        .addComponent(lblTotalLaba)))
-                .addContainerGap(155, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel3)
-                .addGap(36, 36, 36)
-                .addComponent(lblTotalLaba)
-                .addContainerGap(40, Short.MAX_VALUE))
-        );
+        lblTotalPendapatan.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        lblTotalPendapatan.setText("Jumlah Pendapatan");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1)
                         .addContainerGap())
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(0, 0, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 698, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(124, 124, 124))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblTotalPendapatan)
+                .addGap(284, 284, 284))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
+                .addGap(17, 17, 17)
                 .addComponent(jLabel1)
-                .addGap(40, 40, 40)
+                .addGap(31, 31, 31)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(225, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTotalPendapatan)
+                    .addComponent(jLabel3))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        loadLaba();
+        loadPendapatan();
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
@@ -185,61 +176,57 @@ public class TotalLaba extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JLabel lblTotalLaba;
+    private javax.swing.JLabel lblTotalPendapatan;
     private javax.swing.JSpinner spinnerMulai;
     private javax.swing.JSpinner spinnerSampai;
     // End of variables declaration//GEN-END:variables
-private void loadLaba() {
+private void loadPendapatan() {
     DefaultTableModel model = new DefaultTableModel();
     model.addColumn("No");
     model.addColumn("Tanggal");
-    model.addColumn("Nama Produk");
-    model.addColumn("Qty");
-    model.addColumn("Laba");
+    model.addColumn("ID Transaksi");
+    model.addColumn("Total Transaksi");
 
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
     String mulai = sdf.format(spinnerMulai.getValue());
     String sampai = sdf.format(spinnerSampai.getValue());
 
-    double totalLabaBersih = 0;
+    double grandTotal = 0;
 
     try {
-        // Query JOIN 3 tabel untuk menghitung selisih harga
-        // Catatan: Ganti 'harga_beli' sesuai nama kolom modal di tabel produk Anda
-        String sql = "SELECT t.tanggal, p.nama_produk, dt.jumlah, " +
-                     "((p.harga - p.harga_beli) * dt.jumlah) AS laba_item " +
-                     "FROM detail_transaksi dt " +
-                     "JOIN produk p ON dt.id_produk = p.id_produk " +
-                     "JOIN transaksi t ON dt.id_transaksi = t.id_transaksi " +
-                     "WHERE t.tanggal BETWEEN '" + mulai + "' AND '" + sampai + "' " +
-                     "ORDER BY t.tanggal ASC";
+        // Query untuk mengambil data transaksi berdasarkan rentang tanggal
+        String sql = "SELECT tanggal, id_transaksi, total FROM transaksi " +
+                     "WHERE tanggal BETWEEN '" + mulai + "' AND '" + sampai + "' " +
+                     "ORDER BY tanggal ASC";
 
         Connection conn = sz.util.Koneksi.Go();
         ResultSet res = conn.createStatement().executeQuery(sql);
 
         int no = 1;
         while (res.next()) {
-            double labaPerBaris = res.getDouble("laba_item");
-            totalLabaBersih += labaPerBaris;
+            double subtotal = res.getDouble("total");
+            grandTotal += subtotal; // Menjumlahkan untuk lblTotalPendapatan
 
             model.addRow(new Object[]{
                 no++,
                 res.getString("tanggal"),
-                res.getString("nama_produk"),
-                res.getString("jumlah"),
-                "Rp " + String.format("%,.0f", labaPerBaris)
+                res.getString("id_transaksi"),
+                "Rp " + String.format("%,.0f", subtotal)
             });
         }
         
+        // Set data ke Tabel
         jTable1.setModel(model);
-        lblTotalLaba.setText("Rp " + String.format("%,.0f", totalLabaBersih));
+        
+        // Set total ke Label (lblTotalPendapatan)
+        lblTotalPendapatan.setText("Rp " + String.format("%,.0f", grandTotal));
 
     } catch (SQLException e) {
-        javax.swing.JOptionPane.showMessageDialog(this, "Error Laba: " + e.getMessage());
+        javax.swing.JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
     }
 }
 }

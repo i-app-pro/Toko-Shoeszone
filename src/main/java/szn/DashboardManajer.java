@@ -10,9 +10,9 @@ import sz.panel.GrafikPenjualan;
 import sz.panel.KinerjaKasir;
 import sz.panel.LaporanKeuangan;
 import sz.panel.ProdukTerlaris;
-import sz.panel.ProdukTerjual;
-import sz.panel.TotalLaba;
-import sz.panel.TotalPendapatan;
+import sz.panel.SepatuTerjual;
+import sz.panel.LabaPendapatan;
+import sz.panel.Pendapatan;
 
 /**
  *
@@ -50,6 +50,7 @@ public class DashboardManajer extends javax.swing.JFrame {
         jPanel7 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,91 +58,105 @@ public class DashboardManajer extends javax.swing.JFrame {
         jPanel6.setPreferredSize(new java.awt.Dimension(180, 420));
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnGrafikPenjualan.setBackground(new java.awt.Color(255, 255, 102));
-        btnGrafikPenjualan.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnGrafikPenjualan.setBackground(new java.awt.Color(0, 204, 204));
+        btnGrafikPenjualan.setFont(new java.awt.Font("Lucida Fax", 1, 18)); // NOI18N
         btnGrafikPenjualan.setText("Grafik Penjualan");
+        btnGrafikPenjualan.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnGrafikPenjualan.setBorderPainted(false);
         btnGrafikPenjualan.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnGrafikPenjualan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGrafikPenjualanActionPerformed(evt);
             }
         });
-        jPanel6.add(btnGrafikPenjualan, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, 180, 40));
+        jPanel6.add(btnGrafikPenjualan, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 190, 40));
 
-        btnPendapatan.setBackground(new java.awt.Color(255, 255, 102));
-        btnPendapatan.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnPendapatan.setBackground(new java.awt.Color(0, 204, 204));
+        btnPendapatan.setFont(new java.awt.Font("Lucida Fax", 1, 18)); // NOI18N
         btnPendapatan.setText("Pendapatan");
+        btnPendapatan.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnPendapatan.setBorderPainted(false);
         btnPendapatan.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnPendapatan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPendapatanActionPerformed(evt);
             }
         });
-        jPanel6.add(btnPendapatan, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, 180, 40));
+        jPanel6.add(btnPendapatan, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, 190, 40));
 
-        btnLaporanHarian.setBackground(new java.awt.Color(255, 255, 102));
-        btnLaporanHarian.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnLaporanHarian.setText("Laporan Harian");
+        btnLaporanHarian.setBackground(new java.awt.Color(0, 204, 204));
+        btnLaporanHarian.setFont(new java.awt.Font("Lucida Fax", 1, 18)); // NOI18N
+        btnLaporanHarian.setText("Laporan Keuangan");
+        btnLaporanHarian.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnLaporanHarian.setBorderPainted(false);
         btnLaporanHarian.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnLaporanHarian.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLaporanHarianActionPerformed(evt);
             }
         });
-        jPanel6.add(btnLaporanHarian, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 180, 40));
+        jPanel6.add(btnLaporanHarian, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, 190, 40));
 
-        btnProdukTerjual.setBackground(new java.awt.Color(255, 255, 102));
-        btnProdukTerjual.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnProdukTerjual.setText("Produk Terjual");
+        btnProdukTerjual.setBackground(new java.awt.Color(0, 204, 204));
+        btnProdukTerjual.setFont(new java.awt.Font("Lucida Fax", 1, 18)); // NOI18N
+        btnProdukTerjual.setText("Barang Terjual");
+        btnProdukTerjual.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnProdukTerjual.setBorderPainted(false);
         btnProdukTerjual.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnProdukTerjual.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnProdukTerjualActionPerformed(evt);
             }
         });
-        jPanel6.add(btnProdukTerjual, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, 180, 40));
+        jPanel6.add(btnProdukTerjual, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, 190, 40));
 
-        btnKinerjaKasir.setBackground(new java.awt.Color(255, 255, 102));
-        btnKinerjaKasir.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnKinerjaKasir.setBackground(new java.awt.Color(0, 204, 204));
+        btnKinerjaKasir.setFont(new java.awt.Font("Lucida Fax", 1, 18)); // NOI18N
         btnKinerjaKasir.setText("Kinerja Kasir");
+        btnKinerjaKasir.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnKinerjaKasir.setBorderPainted(false);
         btnKinerjaKasir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnKinerjaKasir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnKinerjaKasirActionPerformed(evt);
             }
         });
-        jPanel6.add(btnKinerjaKasir, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, 180, 40));
+        jPanel6.add(btnKinerjaKasir, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 440, 190, 40));
 
-        btnProdukTerlaris.setBackground(new java.awt.Color(255, 255, 102));
-        btnProdukTerlaris.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnProdukTerlaris.setBackground(new java.awt.Color(0, 204, 204));
+        btnProdukTerlaris.setFont(new java.awt.Font("Lucida Fax", 1, 18)); // NOI18N
         btnProdukTerlaris.setText("Produk Terlaris");
+        btnProdukTerlaris.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnProdukTerlaris.setBorderPainted(false);
         btnProdukTerlaris.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnProdukTerlaris.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnProdukTerlarisActionPerformed(evt);
             }
         });
-        jPanel6.add(btnProdukTerlaris, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 180, 40));
+        jPanel6.add(btnProdukTerlaris, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 190, 40));
 
-        btnLaba.setBackground(new java.awt.Color(255, 255, 102));
-        btnLaba.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnLaba.setBackground(new java.awt.Color(0, 204, 204));
+        btnLaba.setFont(new java.awt.Font("Lucida Fax", 1, 18)); // NOI18N
         btnLaba.setText("Laba");
+        btnLaba.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnLaba.setBorderPainted(false);
         btnLaba.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnLaba.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLabaActionPerformed(evt);
             }
         });
-        jPanel6.add(btnLaba, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 180, 40));
+        jPanel6.add(btnLaba, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 370, 190, 40));
 
         contentPanel.setBackground(new java.awt.Color(0, 153, 153));
         contentPanel.setLayout(new java.awt.BorderLayout());
 
-        jPanel7.setBackground(new java.awt.Color(0, 255, 255));
+        jPanel7.setBackground(new java.awt.Color(0, 204, 204));
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel1.setText("jLabel1");
+        jLabel1.setFont(new java.awt.Font("Lucida Fax", 1, 14)); // NOI18N
+        jLabel1.setText("                 PROFILE");
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel1MouseClicked(evt);
@@ -150,16 +165,22 @@ public class DashboardManajer extends javax.swing.JFrame {
         jPanel7.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1240, 30, 226, -1));
 
         jButton2.setBackground(new java.awt.Color(255, 0, 0));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton2.setFont(new java.awt.Font("Lucida Fax", 1, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Logout");
+        jButton2.setText("LOGOUT");
+        jButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton2.setBorderPainted(false);
         jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel7.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1240, 60, 226, -1));
+        jPanel7.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1240, 60, 226, 30));
+
+        jLabel2.setFont(new java.awt.Font("Monospaced", 1, 36)); // NOI18N
+        jLabel2.setText("Dashboard Manajer");
+        jPanel7.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -194,7 +215,7 @@ public class DashboardManajer extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGrafikPenjualanActionPerformed
 
     private void btnPendapatanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPendapatanActionPerformed
-    TotalPendapatan panel = new TotalPendapatan();
+    Pendapatan panel = new Pendapatan();
         contentPanel.removeAll();
         contentPanel.add(panel);
         contentPanel.repaint();
@@ -220,7 +241,7 @@ public class DashboardManajer extends javax.swing.JFrame {
 
     private void btnProdukTerjualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProdukTerjualActionPerformed
         // TODO add your handling code here:
-    ProdukTerjual panel = new ProdukTerjual();
+    SepatuTerjual panel = new SepatuTerjual();
         contentPanel.removeAll();
         contentPanel.add(panel);
         contentPanel.repaint();
@@ -247,7 +268,7 @@ public class DashboardManajer extends javax.swing.JFrame {
 
     private void btnLabaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLabaActionPerformed
         // TODO add your handling code here:
-    TotalLaba panel = new TotalLaba();
+    LabaPendapatan panel = new LabaPendapatan();
         contentPanel.removeAll();
         contentPanel.add(panel);
         contentPanel.repaint();
@@ -297,6 +318,7 @@ public class DashboardManajer extends javax.swing.JFrame {
     private javax.swing.JPanel contentPanel;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     // End of variables declaration//GEN-END:variables

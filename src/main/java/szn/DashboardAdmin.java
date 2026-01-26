@@ -40,6 +40,7 @@ public class DashboardAdmin extends javax.swing.JFrame {
         jPanel7 = new javax.swing.JPanel();
         lblProfile = new javax.swing.JLabel();
         btnLogout = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -49,55 +50,65 @@ public class DashboardAdmin extends javax.swing.JFrame {
         panelContent.setBackground(new java.awt.Color(0, 153, 153));
         panelContent.setLayout(new java.awt.BorderLayout());
 
-        jPanel7.setBackground(new java.awt.Color(0, 255, 255));
+        jPanel7.setBackground(new java.awt.Color(0, 204, 204));
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblProfile.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblProfile.setText("jLabel1");
+        lblProfile.setFont(new java.awt.Font("Lucida Fax", 1, 14)); // NOI18N
+        lblProfile.setText("                 PROFILE");
         lblProfile.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblProfileMouseClicked(evt);
             }
         });
-        jPanel7.add(lblProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 30, 226, -1));
+        jPanel7.add(lblProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 30, 220, -1));
 
         btnLogout.setBackground(new java.awt.Color(255, 0, 0));
-        btnLogout.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnLogout.setFont(new java.awt.Font("Lucida Fax", 1, 14)); // NOI18N
         btnLogout.setForeground(new java.awt.Color(255, 255, 255));
-        btnLogout.setText("Logout");
+        btnLogout.setText("LOGOUT");
+        btnLogout.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnLogout.setBorderPainted(false);
         btnLogout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLogoutActionPerformed(evt);
             }
         });
-        jPanel7.add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 60, 226, -1));
+        jPanel7.add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 60, 226, 30));
+
+        jLabel1.setFont(new java.awt.Font("Monospaced", 1, 36)); // NOI18N
+        jLabel1.setText("Dashboard Admin");
+        jPanel7.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
 
         jPanel6.setBackground(new java.awt.Color(0, 204, 204));
         jPanel6.setPreferredSize(new java.awt.Dimension(180, 420));
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 102));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jButton1.setBackground(new java.awt.Color(0, 204, 204));
+        jButton1.setFont(new java.awt.Font("Lucida Fax", 1, 18)); // NOI18N
         jButton1.setText("Kelola Data User");
+        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton1.setBorderPainted(false);
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel6.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 250, 50));
+        jPanel6.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 250, 50));
 
-        jButton3.setBackground(new java.awt.Color(255, 255, 102));
-        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jButton3.setBackground(new java.awt.Color(0, 204, 204));
+        jButton3.setFont(new java.awt.Font("Lucida Fax", 1, 18)); // NOI18N
         jButton3.setText("Kelola Data Produk");
+        jButton3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton3.setBorderPainted(false);
         jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel6.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 250, 50));
+        jPanel6.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 250, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -175,6 +186,7 @@ public class DashboardAdmin extends javax.swing.JFrame {
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JLabel lblProfile;

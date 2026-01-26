@@ -54,11 +54,11 @@ public class LoginPage extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(153, 153, 153));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Lucida Fax", 1, 24)); // NOI18N
         jLabel2.setText("Username");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 32, 134, -1));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Lucida Fax", 1, 24)); // NOI18N
         jLabel3.setText("Password");
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 76, 134, -1));
 
@@ -78,8 +78,11 @@ public class LoginPage extends javax.swing.JFrame {
         });
         jPanel2.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(172, 76, 248, 32));
 
-        btnLogin.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnLogin.setText("Login Now");
+        btnLogin.setBackground(new java.awt.Color(153, 153, 153));
+        btnLogin.setFont(new java.awt.Font("Lucida Fax", 1, 18)); // NOI18N
+        btnLogin.setText("Login");
+        btnLogin.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnLogin.setBorderPainted(false);
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLoginActionPerformed(evt);

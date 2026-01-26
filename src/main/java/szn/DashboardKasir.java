@@ -11,7 +11,7 @@ import sz.dialog.ProfileUser;
 import sz.panel.Transaksi;
 import sz.util.Pegawai;
 import sz.panel.LaporanKeuangan;
-import sz.panel.RiwayatTransaksi;
+import sz.panel.RiwayatPenjualan;
 
 /**
  *
@@ -41,6 +41,7 @@ public class DashboardKasir extends javax.swing.JFrame {
         jPanel7 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         btnTransaksi = new javax.swing.JButton();
         btnRiwayatTransaksi = new javax.swing.JButton();
@@ -49,11 +50,11 @@ public class DashboardKasir extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel7.setBackground(new java.awt.Color(0, 255, 255));
+        jPanel7.setBackground(new java.awt.Color(0, 204, 204));
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel1.setText("jLabel1");
+        jLabel1.setFont(new java.awt.Font("Lucida Fax", 1, 14)); // NOI18N
+        jLabel1.setText("                 PROFILE");
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel1MouseClicked(evt);
@@ -62,53 +63,65 @@ public class DashboardKasir extends javax.swing.JFrame {
         jPanel7.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 30, 226, -1));
 
         jButton2.setBackground(new java.awt.Color(255, 0, 0));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton2.setFont(new java.awt.Font("Lucida Fax", 1, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Logout");
+        jButton2.setText("LOGOUT");
+        jButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton2.setBorderPainted(false);
         jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel7.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 60, 226, -1));
+        jPanel7.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 60, 226, 30));
+
+        jLabel2.setFont(new java.awt.Font("Monospaced", 1, 36)); // NOI18N
+        jLabel2.setText("Dashboard Kasir");
+        jPanel7.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, -1));
 
         jPanel6.setBackground(new java.awt.Color(0, 204, 204));
         jPanel6.setPreferredSize(new java.awt.Dimension(180, 420));
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnTransaksi.setBackground(new java.awt.Color(255, 255, 102));
-        btnTransaksi.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnTransaksi.setBackground(new java.awt.Color(0, 204, 204));
+        btnTransaksi.setFont(new java.awt.Font("Lucida Fax", 1, 18)); // NOI18N
         btnTransaksi.setText("Transaksi");
+        btnTransaksi.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnTransaksi.setBorderPainted(false);
         btnTransaksi.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnTransaksi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTransaksiActionPerformed(evt);
             }
         });
-        jPanel6.add(btnTransaksi, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 210, 40));
+        jPanel6.add(btnTransaksi, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 210, 50));
 
-        btnRiwayatTransaksi.setBackground(new java.awt.Color(255, 255, 102));
-        btnRiwayatTransaksi.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnRiwayatTransaksi.setBackground(new java.awt.Color(0, 204, 204));
+        btnRiwayatTransaksi.setFont(new java.awt.Font("Lucida Fax", 1, 18)); // NOI18N
         btnRiwayatTransaksi.setText("Riwayat Transaksi");
+        btnRiwayatTransaksi.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnRiwayatTransaksi.setBorderPainted(false);
         btnRiwayatTransaksi.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnRiwayatTransaksi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRiwayatTransaksiActionPerformed(evt);
             }
         });
-        jPanel6.add(btnRiwayatTransaksi, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 210, 40));
+        jPanel6.add(btnRiwayatTransaksi, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 210, 50));
 
-        btnLaporanHarian.setBackground(new java.awt.Color(255, 255, 102));
-        btnLaporanHarian.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnLaporanHarian.setBackground(new java.awt.Color(0, 204, 204));
+        btnLaporanHarian.setFont(new java.awt.Font("Lucida Fax", 1, 18)); // NOI18N
         btnLaporanHarian.setText("Laporan Keuangan");
+        btnLaporanHarian.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnLaporanHarian.setBorderPainted(false);
         btnLaporanHarian.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnLaporanHarian.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLaporanHarianActionPerformed(evt);
             }
         });
-        jPanel6.add(btnLaporanHarian, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, 210, 40));
+        jPanel6.add(btnLaporanHarian, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, 210, 50));
 
         contentPanel.setBackground(new java.awt.Color(0, 153, 153));
         contentPanel.setLayout(new java.awt.BorderLayout());
@@ -122,7 +135,7 @@ public class DashboardKasir extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(contentPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1161, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
-            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 1517, Short.MAX_VALUE)
+            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 1537, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -151,7 +164,7 @@ public class DashboardKasir extends javax.swing.JFrame {
     }//GEN-LAST:event_btnTransaksiActionPerformed
 
     private void btnRiwayatTransaksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRiwayatTransaksiActionPerformed
-    RiwayatTransaksi panel = new RiwayatTransaksi();
+    RiwayatPenjualan panel = new RiwayatPenjualan();
     contentPanel.removeAll();
     contentPanel.add(panel); // Pastikan nama class panelnya benar
     contentPanel.repaint();
@@ -206,6 +219,7 @@ public class DashboardKasir extends javax.swing.JFrame {
     private javax.swing.JPanel contentPanel;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     // End of variables declaration//GEN-END:variables
